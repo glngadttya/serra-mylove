@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Surat Maaf untuk Cewek Tercinta 💌</title>
+<title>Surat Maaf untuk Cewek Tercinta</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Fredoka:wght@300..600&family=Quicksand:wght@400..700&display=swap" rel="stylesheet">
@@ -201,7 +202,7 @@ tailwind.config = {
 <!-- ===== MUSIC TOGGLE ===== -->
 <button id="btnMusic" class="no-print fixed top-4 right-4 z-50 hidden group candy-btn"
         style="width:56px;height:56px;border-radius:9999px;background:linear-gradient(145deg,#ff8fb5,#ff5f96);box-shadow:0 12px 30px -10px rgba(244,63,125,.7)">
-  <span id="musicIcon" class="text-white text-xl leading-none">🔇</span>
+  <i id="musicIcon" class="fa-solid fa-volume-xmark text-white text-lg"></i>
   <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-bold text-bubblegum-700 bg-white/80 px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition whitespace-nowrap">musik</span>
 </button>
 
@@ -217,7 +218,7 @@ tailwind.config = {
   </div>
   <div class="text-center">
     <p class="font-display text-2xl md:text-3xl rainbow-text font-extrabold">Menyiapkan Surprise...</p>
-    <p class="text-bubblegum-600 text-sm mt-1 animate-pulse">mengusik kotak kecil di hatiku ✨</p>
+    <p class="text-bubblegum-600 text-sm mt-1 animate-pulse">mengusik kotak kecil di hatiku <i class="fa-solid fa-wand-sparkles ml-1"></i></p>
   </div>
   <div class="w-56 h-2.5 bg-white/70 rounded-full overflow-hidden shadow-inner">
     <div id="loadBar" class="h-full w-0 rounded-full bg-gradient-to-r from-bubblegum-400 to-bubblegum-600 transition-all duration-300"></div>
@@ -241,21 +242,21 @@ tailwind.config = {
         </h1>
         <p class="mt-4 text-cocoa/80 text-base md:text-lg max-w-md mx-auto leading-relaxed">
           Di dalam kotak ini ada sesuatu yang aku nyiapin lama banget...
-          tapi aku rasa ada tiket masuknya. <span class="font-bold text-bubblegum-600">Nggak boleh asal buka.</span> 😤
+          tapi aku rasa ada tiket masuknya. <span class="font-bold text-bubblegum-600">Nggak boleh asal buka.</span> <i class=\"fa-solid fa-face-smile-beam ml-1\"></i>
         </p>
 
         <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-bold text-bubblegum-700">
-          <span class="px-3 py-1.5 rounded-full bg-bubblegum-100 border border-bubblegum-200">🎀 challenged</span>
-          <span class="px-3 py-1.5 rounded-full bg-mint/40 border border-mint">🎮 mini game</span>
-          <span class="px-3 py-1.5 rounded-full bg-amber-100 border border-amber-200">📦 mystery box</span>
-          <span class="px-3 py-1.5 rounded-full bg-violet-100 border border-violet-200">💌 surat cinta</span>
+          <span class="px-3 py-1.5 rounded-full bg-bubblegum-100 border border-bubblegum-200"><i class="fa-solid fa-ribbon mr-1"></i>challenged</span>
+          <span class="px-3 py-1.5 rounded-full bg-mint/40 border border-mint"><i class="fa-solid fa-gamepad mr-1"></i>mini game</span>
+          <span class="px-3 py-1.5 rounded-full bg-amber-100 border border-amber-200"><i class="fa-solid fa-box mr-1"></i>mystery box</span>
+          <span class="px-3 py-1.5 rounded-full bg-violet-100 border border-violet-200"><i class="fa-solid fa-envelope mr-1"></i>surat cinta</span>
         </div>
 
         <button id="btnStart" class="mt-9 candy-btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-bubblegum-500 via-bubblegum-400 to-bubblegum-600 text-white font-display text-lg font-bold shadow-glow">
           <span>Mulai Petualangan</span>
-          <span class="animate-bounce">➜</span>
+          <span class="animate-bounce"><i class="fa-solid fa-arrow-right "></i></span>
         </button>
-        <p class="mt-4 text-xs text-cocoa/55">sound effect & musik bisa dimatiin di kanan atas 🔊</p>
+        <p class="mt-4 text-xs text-cocoa/55">sound effect & musik bisa dimatiin di kanan atas <i class="fa-solid fa-volume-high ml-1"></i></p>
       </div>
     </div>
   </div>
@@ -264,7 +265,7 @@ tailwind.config = {
 <!-- ===== STAGE 3: MINI GAME ===== -->
 <div id="stageGame" class="stage fixed inset-0 z-30 flex flex-col items-center justify-center p-4 overflow-hidden">
   <div class="text-center mb-4 px-4">
-    <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow animate-wobble">Tangkap Hati yang Jatuh! 💗</h2>
+    <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow animate-wobble">Tangkap Hati yang Jatuh! <i class="fa-solid fa-heart text-bubblegum-500"></i></h2>
     <p class="text-cocoa/75 mt-1 text-sm md:text-base">Klik / tap hatinya yang jatuh. Kumpulkan <b class="text-bubblegum-600">5 hati</b> untuk dapat kuncinya!</p>
   </div>
 
@@ -275,21 +276,21 @@ tailwind.config = {
   <div id="gameArea" class="relative w-full max-w-4xl h-[46vh] min-h-[280px] rounded-[2rem] overflow-hidden border-2 border-white/70 shadow-soft glass">
     <div class="absolute inset-0 bg-gradient-to-b from-bubblegum-50/50 to-bubblegum-100/40"></div>
     <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-bubblegum-200/60 to-transparent"></div>
-    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-3xl opacity-60 animate-wobble">🧺</div>
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-3xl opacity-60 animate-wobble"><i class="fa-solid fa-shopping-basket "></i></div>
     <div id="heartSpawn" class="absolute inset-0"></div>
     <div id="gameMsg" class="absolute inset-0 flex items-center justify-center pointer-events-none"></div>
   </div>
 
   <div class="mt-4 flex items-center gap-3">
-    <p id="gameTip" class="text-xs text-cocoa/60 bg-white/70 px-4 py-2 rounded-full border border-white">cepet-cepet, hatinya licin! 🤭</p>
-    <button id="btnGiveKey" class="hidden text-xs font-bold text-bubblegum-700 bg-white/80 border border-bubblegum-200 px-4 py-2 rounded-full candy-btn hover:bg-bubblegum-50">nggak jadi? kasih aku kuncinya dong 🥺</button>
+    <p id="gameTip" class="text-xs text-cocoa/60 bg-white/70 px-4 py-2 rounded-full border border-white">cepet-cepet, hatinya licin! <i class="fa-solid fa-face-smile-beam ml-1"></i></p>
+    <button id="btnGiveKey" class="hidden text-xs font-bold text-bubblegum-700 bg-white/80 border border-bubblegum-200 px-4 py-2 rounded-full candy-btn hover:bg-bubblegum-50">nggak jadi? kasih aku kuncinya dong <i class="fa-solid fa-face-sad-tear ml-1"></i></button>
   </div>
 </div>
 
 <!-- ===== STAGE 4: BOX ===== -->
 <div id="stageBox" class="stage fixed inset-0 z-30 flex flex-col items-center justify-center p-4 overflow-y-auto">
-  <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow text-center">Kotak Rahasia Hadiah 💝</h2>
-  <p id="boxSub" class="text-cocoa/75 mt-2 text-center text-sm md:text-base mb-4">Duh, terkunci. Kuncinya ada di tanganmu sekarang! 🔑</p>
+  <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow text-center">Kotak Rahasia Hadiah <i class="fa-solid fa-gift text-bubblegum-500"></i></h2>
+  <p id="boxSub" class="text-cocoa/75 mt-2 text-center text-sm md:text-base mb-4">Duh, terkunci. Kuncinya ada di tanganmu sekarang! <i class="fa-solid fa-key ml-1 text-bubblegum-500"></i></p>
 
   <div class="relative flex items-center justify-center my-2" id="boxWrap" style="height:340px;width:340px;max-width:90vw">
     <div id="boxGlow" class="absolute w-72 h-72 rounded-full bg-bubblegum-300/60 blur-3xl opacity-0 transition-opacity duration-700"></div>
@@ -315,15 +316,15 @@ tailwind.config = {
     </svg>
 
     <div id="keyTag" class="absolute -top-2 right-0 hidden">
-      <div class="animate-bobbing text-5xl drop-shadow-lg">🔑</div>
+      <div class="animate-bobbing text-5xl drop-shadow-lg text-bubblegum-500"><i class="fa-solid fa-key "></i></div>
     </div>
   </div>
 
   <div class="flex flex-wrap items-center justify-center gap-3">
     <button id="btnOpenBox" class="candy-btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-bubblegum-500 to-bubblegum-600 text-white font-display text-lg font-bold shadow-glow">
-      <span>Buka Kotaknya!</span> <span class="animate-bounce">💫</span>
+      <span>Buka Kotaknya!</span> <span class="animate-bounce"><i class="fa-solid fa-wand-magic-sparkles "></i></span>
     </button>
-    <button id="btnShakeBox" class="candy-btn px-5 py-3 rounded-full bg-white/80 border-2 border-bubblegum-200 text-bubblegum-700 font-bold text-sm">Goyang dulu 🤭</button>
+    <button id="btnShakeBox" class="candy-btn px-5 py-3 rounded-full bg-white/80 border-2 border-bubblegum-200 text-bubblegum-700 font-bold text-sm">Goyang dulu <i class="fa-solid fa-face-smile-beam ml-1"></i></button>
   </div>
 </div>
 
@@ -335,7 +336,7 @@ tailwind.config = {
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-bubblegum-200 text-bubblegum-700 font-bold text-xs shadow-card">
         <span class="w-2 h-2 rounded-full bg-bubblegum-500 animate-ping"></span> pesan ini cuma buat kamu
       </div>
-      <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow mt-3">Surat dari powered by love 💌</h2>
+      <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow mt-3">Surat dari powered by love <i class="fa-solid fa-envelope-open-text text-bubblegum-500"></i></h2>
     </div>
 
     <div class="w-full max-w-4xl grid lg:grid-cols-[1.1fr_.9fr] gap-6 items-start">
@@ -358,10 +359,10 @@ tailwind.config = {
 
         <div class="mt-7 flex items-end justify-between gap-4 border-t-2 border-dashed border-bubblegum-200 pt-5">
           <div>
-            <p class="font-display text-xl font-extrabold text-bubblegum-600">Sarang, cincau 💕</p>
+            <p class="font-display text-xl font-extrabold text-bubblegum-600">Sarang, cincau <i class="fa-solid fa-heart text-bubblegum-500"></i></p>
             <p class="text-xs text-cocoa/60 mt-0.5">dari orang yang lagi belajar jadi lebih baik</p>
           </div>
-          <div class="text-3xl animate-wiggle">💌</div>
+          <div class="text-3xl animate-wiggle text-bubblegum-500"><i class="fa-solid fa-envelope "></i></div>
         </div>
       </div>
 
@@ -429,38 +430,38 @@ tailwind.config = {
           </div>
 
           <div class="relative mt-3 bg-white rounded-2xl rounded-tl-md border-2 border-bubblegum-200 px-4 py-3 shadow-card min-h-[86px]">
-            <p id="bubbleText" class="font-cute text-[15px] text-cocoa leading-relaxed">Halo, kamu~ akhirnya boleh dibuka?\!\! Hurry, soalnya di dalam ada rahasia... 💕</p>
+            <p id="bubbleText" class="font-cute text-[15px] text-cocoa leading-relaxed">Halo, kamu~ akhirnya boleh dibuka?! Hurry, soalnya di dalam ada rahasia... <i class="fa-solid fa-heart ml-1 text-bubblegum-400"></i></p>
           </div>
 
           <!-- love meter -->
           <div class="mt-4">
             <div class="flex items-center justify-between text-xs font-bold text-bubblegum-700 mb-1">
-              <span>Love Meter 💖</span><span id="lovePct">0%</span>
+              <span><i class="fa-solid fa-heart mr-1"></i>Love Meter</span><span id="lovePct">0%</span>
             </div>
             <div class="h-3.5 rounded-full bg-white border-2 border-bubblegum-200 overflow-hidden">
               <div id="loveBar" class="h-full w-0 bg-gradient-to-r from-bubblegum-300 via-bubblegum-500 to-amber-300 transition-all duration-500"></div>
             </div>
-            <button id="btnLove" class="mt-3 w-full candy-btn py-3 rounded-full bg-gradient-to-r from-bubblegum-400 to-bubblegum-600 text-white font-display font-bold shadow-glow">Tekan Hatiiku 💗</button>
+            <button id="btnLove" class="mt-3 w-full candy-btn py-3 rounded-full bg-gradient-to-r from-bubblegum-400 to-bubblegum-600 text-white font-display font-bold shadow-glow"><i class="fa-solid fa-heart mr-2"></i>Tekan Hatiiku</button>
           </div>
         </div>
 
         <div class="grid grid-cols-3 gap-2 text-center">
-          <button id="btnHug" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm">🤗 Peluk</button>
-          <button id="btnKiss" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm">😘 Cium</button>
-          <button id="btnRain" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm">🌧️ Hujan</button>
+          <button id="btnHug" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm"><i class="fa-solid fa-hand-holding-heart mr-1"></i>Peluk</button>
+          <button id="btnKiss" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm"><i class="fa-solid fa-face-kiss mr-1"></i>Cium</button>
+          <button id="btnRain" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm"><i class="fa-solid fa-cloud-rain mr-1"></i>Hujan</button>
         </div>
 
         <!-- REPLY -->
         <div class="glass rounded-[1.5rem] border-2 border-white/70 p-4 shadow-card">
-          <p class="font-display font-bold text-bubblegum-700 text-sm mb-2">Balas pesan ini dong 💌</p>
+          <p class="font-display font-bold text-bubblegum-700 text-sm mb-2"><i class="fa-solid fa-envelope mr-2"></i>Balas pesan ini dong</p>
           <textarea id="replyBox" rows="3" placeholder="ketik apa aja di sini, aku baca semua..."
             class="w-full rounded-xl border-2 border-bubblegum-200 bg-white/90 p-3 text-sm text-cocoa outline-none focus:border-bubblegum-400 focus:ring-4 focus:ring-bubblegum-200 transition resize-none"></textarea>
-          <button id="btnReply" class="mt-2 w-full candy-btn py-3 rounded-full bg-cocoa text-white font-display font-bold">Kirim Balasan 💌</button>
+          <button id="btnReply" class="mt-2 w-full candy-btn py-3 rounded-full bg-cocoa text-white font-display font-bold"><i class="fa-solid fa-paper-plane mr-2"></i>Kirim Balasan</button>
         </div>
       </div>
     </div>
 
-    <p class="no-print mt-8 text-center text-xs text-cocoa/50">dibuat dengan tangan, maaf, dan hati yang berdebar-debar ✨</p>
+    <p class="no-print mt-8 text-center text-xs text-cocoa/50">dibuat dengan tangan, maaf, dan hati yang berdebar-debar <i class="fa-solid fa-wand-sparkles ml-1"></i></p>
   </div>
 </div>
 
@@ -473,12 +474,12 @@ tailwind.config = {
       <path d="M12 21s-7.5-4.6-9.5-9A5.5 5.5 0 0 1 12 5.8 5.5 5.5 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z" fill="#fff"/>
     </svg>
     <h2 class="font-display font-extrabold text-5xl md:text-7xl text-white mt-4 drop-shadow-lg animate-pop">
-      TERIMA KASIH<br/>SUDAH DIBACA 💗
+      TERIMA KASIH<br/>SUDAH DIBACA <i class="fa-solid fa-heart ml-2"></i>
     </h2>
     <p id="finaleMsg" class="mt-4 text-white/95 font-cute text-lg md:text-2xl max-w-xl mx-auto leading-relaxed"></p>
     <div class="mt-8 flex flex-wrap gap-3 justify-center">
-      <button id="btnAgain" class="candy-btn px-7 py-3.5 rounded-full bg-white text-bubblegum-700 font-display font-bold text-lg shadow-xl">Ulangi Lagi 🔁</button>
-      <button id="btnPrint" class="candy-btn px-7 py-3.5 rounded-full bg-cocoa/90 text-white font-display font-bold text-lg shadow-xl">Cetak Surat 🖨️</button>
+      <button id="btnAgain" class="candy-btn px-7 py-3.5 rounded-full bg-white text-bubblegum-700 font-display font-bold text-lg shadow-xl"><i class="fa-solid fa-rotate mr-2"></i>Ulangi Lagi</button>
+      <button id="btnPrint" class="candy-btn px-7 py-3.5 rounded-full bg-cocoa/90 text-white font-display font-bold text-lg shadow-xl"><i class="fa-solid fa-print mr-2"></i>Cetak Surat</button>
     </div>
     <div class="mt-8 flex justify-center gap-3">
       <svg class="w-16 h-16 animate-floaty2"><use href="#m-bear"/></svg>
@@ -493,14 +494,16 @@ tailwind.config = {
 (function(){
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+  const fa = (name, cls='') => '<i class="fa-solid fa-'+name+' '+cls+'"></i>';
 
   /* ---------- BACKGROUND FLOATERS ---------- */
   const bgLayer = $('#bgLayer');
-  const bgIcons = ['💗','🌸','✨','🎀','💕','🩷','🍬','🌷','⭐','🎈'];
+  const bgIcons = ['fa-heart','fa-spa','fa-wand-sparkles','fa-ribbon','fa-star','fa-heart','fa-candy-cane','fa-cloud','fa-star','fa-gift'];
+  const bgColors = ['#ff83ad','#ffc2dc','#ffd9e8','#ff9dc4','#ffe6a8','#7ec9b3','#c58cff','#ffb3cf'];
   for (let i=0;i<26;i++){
-    const el = document.createElement('div');
-    el.textContent = bgIcons[Math.floor(Math.random()*bgIcons.length)];
-    el.className = 'absolute select-none';
+    const el = document.createElement('i');
+    el.className = 'fa-solid ' + bgIcons[Math.floor(Math.random()*bgIcons.length)] + ' absolute select-none';
+    el.style.color = bgColors[Math.floor(Math.random()*bgColors.length)];
     const size = 14 + Math.random()*26;
     el.style.fontSize = size+'px';
     el.style.left = Math.random()*100+'%';
@@ -532,9 +535,9 @@ tailwind.config = {
     const now = Date.now();
     if (now - lastTrail < 55) return;
     lastTrail = now;
-    const h = document.createElement('div');
-    h.className = 'cursor-heart';
-    h.textContent = ['💗','💕','✨','🩷'][Math.floor(Math.random()*4)];
+    const h = document.createElement('i');
+    h.className = 'cursor-heart fa-solid ' + ['fa-heart','fa-heart','fa-wand-sparkles','fa-heart'][Math.floor(Math.random()*4)];
+    h.style.color = ['#ff5f96','#ff83ad','#ffc2dc','#ffb3cf'][Math.floor(Math.random()*4)];
     h.style.left = (e.clientX-8)+'px';
     h.style.top = (e.clientY-8)+'px';
     h.style.fontSize = (10+Math.random()*12)+'px';
@@ -579,7 +582,7 @@ tailwind.config = {
   btnMusic.addEventListener('click', ()=>{
     ensureCtx();
     musicOn = !musicOn;
-    $('#musicIcon').textContent = musicOn ? '🎵' : '🔇';
+    $('#musicIcon').className = 'fa-solid ' + (musicOn ? 'fa-volume-high' : 'fa-volume-xmark') + ' text-white text-lg';
     if(musicOn) playMusic(); else stopMusic();
   });
 
@@ -632,9 +635,9 @@ tailwind.config = {
 
   function spawnHeart(){
     if(!running) return;
-    const h = document.createElement('div');
-    h.textContent = Math.random()>.5 ? '💗' : '💖';
-    h.className = 'absolute select-none cursor-pointer animate-fall';
+    const h = document.createElement('i');
+    h.className = 'fa-solid fa-heart absolute select-none cursor-pointer animate-fall';
+    h.style.color = Math.random()>.5 ? '#ff5f96' : '#ff83ad';
     const sz = 30 + Math.random()*26;
     h.style.fontSize = sz+'px';
     h.style.left = (4 + Math.random()*90) + '%';
@@ -652,7 +655,7 @@ tailwind.config = {
       setTimeout(()=>h.remove(), 340);
       score++; scoreText.textContent = score + ' / 5';
       blip(760 + score*90); ensureCtx();
-      floatText('+1 ❣️', h.style.left, h.style.top);
+      floatText('+1', h.style.left, h.style.top);
       if(score >= 5) winGame();
     });
     spawn.appendChild(h);
@@ -673,7 +676,7 @@ tailwind.config = {
     running = false;
     clearInterval(spawnTimer);
     spawn.innerHTML = '';
-    gameMsg.innerHTML = '<div class="text-center animate-pop"><div class="text-6xl">🔑</div><p class="font-display text-2xl font-extrabold text-bubblegum-600 mt-2">KUNCINYA KAMU MILIK!</p><p class="text-sm text-cocoa/70">nyusul ke kotak surat yaa 💌</p></div>';
+    gameMsg.innerHTML = '<div class="text-center animate-pop"><div class="text-6xl text-bubblegum-500">' + fa('key') + '</div><p class="font-display text-2xl font-extrabold text-bubblegum-600 mt-2">KUNCINYA KAMU MILIK!</p><p class="text-sm text-cocoa/70">nyusul ke kotak surat yaa ' + fa('envelope') + '</p></div>';
     blip(1046); setTimeout(()=>blip(1318),150); setTimeout(()=>blip(1568),300);
     confetti(60);
     setTimeout(()=>{ goto('box'); $('#keyTag').classList.remove('hidden'); }, 1800);
@@ -699,7 +702,7 @@ tailwind.config = {
     boxSvg.classList.add('animate-shake');
     setTimeout(()=>boxSvg.classList.remove('animate-shake'), 700);
     blip(400); setTimeout(()=>blip(500),100);
-    $('#boxSub').textContent = 'Kotaknya cuma goyang dikit... kayaknya isinya beneran! 😆';
+    $('#boxSub').textContent = 'Kotaknya cuma goyang dikit... kayaknya isinya beneran!';
   });
   boxLid.addEventListener('click', ()=>{ if(!boxOpened) openBox(); });
   $('#btnOpenBox').addEventListener('click', openBox);
@@ -727,7 +730,7 @@ tailwind.config = {
       $('#boxWrap').appendChild(s);
       setTimeout(()=>s.remove(), 1600);
     }
-    $('#boxSub').textContent = 'YUHUU! Buka! Ada apa di dalamnya?! 😱';
+    $('#boxSub').textContent = 'YUHUU! Buka! Ada apa di dalamnya?!';
     setTimeout(()=>{
       goto('letter');
       $('#rays').classList.remove('animate-sunspin'); $('#rays').style.opacity='0';
@@ -758,10 +761,11 @@ tailwind.config = {
       setTimeout(()=>c.remove(), 3200);
     }
   }
-  function heartBurst(n=24, emoji='💗'){
+  function heartBurst(n=24, icon='fa-heart'){
     for(let i=0;i<n;i++){
-      const h=document.createElement('div');
-      h.textContent=emoji;
+      const h=document.createElement('i');
+      h.className='fa-solid '+icon;
+      h.style.color=['#ff5f96','#ff83ad','#ffb3cf','#ffd9e8'][Math.floor(Math.random()*4)];
       h.style.position='fixed';
       h.style.left=(20+Math.random()*60)+'vw';
       h.style.top=(30+Math.random()*40)+'vh';
@@ -777,7 +781,7 @@ tailwind.config = {
   }
 
   /* ---------- TYPEWRITER ---------- */
-  const LETTER = `Hai, Sayangku 💗
+  const LETTER = `Hai, Sayangku,
 
 Kalau pesan ini sampai ke layar kamu, berarti kotak di hatiku akhirnya berhasil dibuka juga. Aku sengaja bikin halaman ini ribet-ribet, soalnya permintaan maaf itu nggak muat kalau cuma ngetik chat biasa. Maaf ya... ada banyak yang harus aku tanggung jawab. Sorry, salahku.
 
@@ -802,7 +806,7 @@ Terima kasih udah sabar sama aku. Kamu itu rumah paling tenang buat aku, dan aku
 
 Maaf ya udah bikin capek dan kesal. Aku promise mulai hari ini aku mau jadi lebih baik buat kamu.
 
-Meluk-manyuk, cincau 💗`;
+Meluk-manyuk, cincau`;
   const letterBody = $('#letterBody');
   let typeTimer = null, typeIdx = 0;
   function startTypewriter(){
@@ -815,7 +819,7 @@ Meluk-manyuk, cincau 💗`;
       if(typeIdx >= LETTER.length){
         clearInterval(typeTimer);
         caret.style.display='none';
-        bubble('Sudah selesai baca? 🥺 I love you so much.');
+        bubble('Sudah selesai baca? I love you so much.');
         return;
       }
       const ch = LETTER[typeIdx++];
@@ -828,14 +832,14 @@ Meluk-manyuk, cincau 💗`;
 
   /* ---------- BUBBLE ---------- */
   const BUBBLES = [
-    'Hai, kamu~ akhirnya kebuka? Aku deg-degan deh 💕',
-    'Ada lima hati yang harus kamu tangkap dulu, lho! 🤭',
-    'Kuncinya kamu yang bawa sendiri, lucu ya? 🔑',
-    'Hati aku udah terbuka, kamu gimana? 💌',
-    'Kalau baca ini, peluk aku ya! 🤗',
-    'Aku: satu-satu ya wkwk, biar hatinya nggak naik-turun... 💕',
-    'Nggak nyesel deh nunggu kamu buka ini 🥹',
-    'Hmm... mau aku Bilang hal manis lagi? 😳'
+    'Hai, kamu~ akhirnya kebuka? Aku deg-degan deh',
+    'Ada lima hati yang harus kamu tangkap dulu, lho!',
+    'Kuncinya kamu yang bawa sendiri, lucu ya?',
+    'Hati aku udah terbuka, kamu gimana?',
+    'Kalau baca ini, peluk aku ya!',
+    'Aku: satu-satu ya wkwk, biar hatinya nggak naik-turun...',
+    'Nggak nyesel deh nunggu kamu buka ini',
+    'Hmm... mau aku bilang hal manis lagi?'
   ];
   let bIdx = 0;
   function bubble(txt){
@@ -855,10 +859,10 @@ Meluk-manyuk, cincau 💗`;
     love = Math.min(100, love + 4 + Math.floor(Math.random()*5));
     $('#loveBar').style.width = love + '%';
     $('#lovePct').textContent = love + '%';
-    heartBurst(4, ['💗','💖','💕','🩷'][Math.floor(Math.random()*4)]);
+    heartBurst(4, ['fa-heart','fa-heart','fa-heart','fa-wand-sparkles'][Math.floor(Math.random()*4)]);
     blip(500 + love*8);
     if(love >= 100){
-      $('#bubbleText').textContent = 'Love meter full! Kamu savage banget sih 💖💖💖';
+      $('#bubbleText').textContent = 'Love meter full! Kamu savage banget sih — hati aku full!';
       confetti(80);
       $('#charBox').querySelector('svg').classList.add('animate-heartbeat');
     }
@@ -869,20 +873,21 @@ Meluk-manyuk, cincau 💗`;
     const g = $('#charBox').querySelector('svg');
     g.classList.add('animate-squash');
     setTimeout(()=>g.classList.remove('animate-squash'), 600);
-    heartBurst(18,'💗');
-    bubble('HUG! 🤗🤗🤗 Peluk virtual, tapi hatinya beneran!');
+    heartBurst(18,'fa-heart');
+    bubble('HUG! Peluk virtual, tapi hatinya beneran!');
     blip(392); setTimeout(()=>blip(523),100); setTimeout(()=>blip(659),200);
   });
   $('#btnKiss').addEventListener('click', ()=>{
-    heartBurst(22,'😘');
-    bubble('Muah! 💋 Ini kiss virtual, kiss beneran dapat waktu ketemu ya!');
+    heartBurst(22,'fa-heart');
+    bubble('Muah! Ini kiss virtual, kiss beneran dapat waktu ketemu ya!');
     blip(880); setTimeout(()=>blip(1174),120);
   });
   $('#btnRain').addEventListener('click', ()=>{
-    const icons = ['💗','🌸','💕','✨','🎀'];
+    const icons = ['fa-heart','fa-spa','fa-heart','fa-wand-sparkles','fa-ribbon'];
     for(let i=0;i<40;i++){
-      const e = document.createElement('div');
-      e.textContent = icons[Math.floor(Math.random()*icons.length)];
+      const e = document.createElement('i');
+      e.className = 'fa-solid ' + icons[Math.floor(Math.random()*icons.length)];
+      e.style.color = ['#ff83ad','#ffc2dc','#ff5f96','#ffe6a8','#c58cff'][Math.floor(Math.random()*5)];
       e.style.position='fixed'; e.style.top='-40px';
       e.style.left=(Math.random()*100)+'vw';
       e.style.fontSize=(14+Math.random()*18)+'px';
@@ -892,14 +897,14 @@ Meluk-manyuk, cincau 💗`;
       document.body.appendChild(e);
       setTimeout(()=>e.remove(), 9000);
     }
-    bubble('Hujan bunga buat kamu 🌸🌧️');
+    bubble('Hujan bunga buat kamu!');
   });
 
   /* ---------- REPLY ---------- */
   $('#btnReply').addEventListener('click', ()=>{
     const v = $('#replyBox').value.trim();
     if(v.length < 2){
-      bubble('Ehe, jangan kosong dong, aku nunggu balasanmu 💌');
+      bubble('Ehe, jangan kosong dong, aku nunggu balasanmu!');
       $('#replyBox').classList.add('animate-shake');
       setTimeout(()=>$('#replyBox').classList.remove('animate-shake'),700);
       return;
@@ -908,7 +913,7 @@ Meluk-manyuk, cincau 💗`;
     const fin = $('#finale');
     fin.style.display = 'flex';
     fin.classList.add('animate-pop');
-    $('#finaleMsg').innerHTML = 'Balasan kamu udah masuk ke hatiku, dan tahu apa? <b>Hati aku juga balas: "I LOVE YOU. Always. Bahkan habis ini juga."</b><br><span class="text-sm opacity-90">— dibuat dengan semua error yang pernah kamu tanggung karena aku 💗</span>';
+    $('#finaleMsg').innerHTML = 'Balasan kamu udah masuk ke hatiku, dan tahu apa? <b>Hati aku juga balas: "I LOVE YOU. Always. Bahkan habis ini juga."</b><br><span class="text-sm opacity-90">— dibuat dengan semua error yang pernah kamu tanggung karena aku ' + fa('heart') + '</span>';
     heartRain();
     confetti(100);
     $('#replyBox').value = '';
@@ -919,8 +924,9 @@ Meluk-manyuk, cincau 💗`;
   function heartRain(){
     const wrap = $('#finaleHearts');
     for(let i=0;i<70;i++){
-      const h=document.createElement('div');
-      h.textContent = ['💗','💕','🌸','✨','💖','🎀','🩷'][Math.floor(Math.random()*7)];
+      const h=document.createElement('i');
+      h.className = 'fa-solid ' + ['fa-heart','fa-heart','fa-spa','fa-wand-sparkles','fa-heart','fa-ribbon','fa-star'][Math.floor(Math.random()*7)];
+      h.style.color = ['#ffffff','#fff0f6','#ffe6a8','#ffe1ec','#ffd9e8'][Math.floor(Math.random()*5)];
       h.style.position='absolute';
       h.style.left=(Math.random()*100)+'%';
       h.style.top=(-10-Math.random()*60)+'%';
