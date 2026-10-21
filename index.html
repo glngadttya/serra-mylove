@@ -17,7 +17,8 @@ tailwind.config = {
         bubblegum: { 50:'#fff4f8', 100:'#ffe6f0', 200:'#ffc9de', 300:'#ffa8c7', 400:'#ff83ad', 500:'#ff5f96', 600:'#f43f7d', 700:'#d82463', 800:'#b41b56', 900:'#931a4b' },
         cream: '#FFF8F5',
         cocoa: '#5B3547',
-        mint: '#B9EAD7'
+        mint: '#B9EAD7',
+        grape: '#9B7EDE'
       },
       fontFamily: {
         display: ['"Baloo 2"','cursive'],
@@ -27,7 +28,8 @@ tailwind.config = {
       boxShadow: {
         soft: '0 24px 60px -24px rgba(244,63,125,.55)',
         glow: '0 0 45px rgba(255,120,170,.55)',
-        card: '0 18px 40px -18px rgba(91,53,71,.35)'
+        card: '0 18px 40px -18px rgba(91,53,71,.35)',
+        inset: 'inset 0 2px 8px rgba(91,53,71,.12)'
       },
       keyframes: {
         floaty:   { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-14px)' } },
@@ -35,21 +37,21 @@ tailwind.config = {
         bobbing:  { '0%,100%': { transform: 'translateY(0) scale(1)' }, '50%': { transform: 'translateY(-8px) scale(1.02)' } },
         wiggle:   { '0%,100%': { transform: 'rotate(-4deg)' }, '50%': { transform: 'rotate(4deg)' } },
         wiggle2:  { '0%,100%': { transform: 'rotate(5deg)' }, '50%': { transform: 'rotate(-5deg)' } },
-        heartbeat:{ '0%,100%': { transform: 'scale(1)' }, '14%': { transform: 'scale(1.18)' }, '28%': { transform: 'scale(.97)' }, '42%': { transform: 'scale(1.12)' } },
+        heartbeat:{ '0%,100%': { transform: 'scale(1)' }, '14%': { transform: 'scale(1.15)' }, '28%': { transform: 'scale(.97)' }, '42%': { transform: 'scale(1.1)' } },
         blink:    { '0%,92%,100%': { transform: 'scaleY(1)' }, '95%': { transform: 'scaleY(.08)' } },
         pop:      { '0%': { transform: 'scale(.6)', opacity:'0' }, '60%': { transform: 'scale(1.12)', opacity:'1' }, '100%': { transform: 'scale(1)', opacity:'1' } },
-        fall:     { '0%': { transform: 'translateY(-60px) rotate(0deg)', opacity:'0' }, '10%': { opacity:'1' }, '100%': { transform: 'translateY(105vh) rotate(540deg)', opacity:'0' } },
-        rise:     { '0%': { transform: 'translateY(0) scale(.4)', opacity:'0' }, '20%': { opacity:'1' }, '100%': { transform: 'translateY(-110px) scale(1.15)', opacity:'0' } },
         sunspin:  { '0%': { transform: 'rotate(0deg) scale(.6)', opacity:'0' }, '30%': { opacity:'.85' }, '100%': { transform: 'rotate(180deg) scale(1.5)', opacity:'0' } },
         shake:    { '0%,100%': { transform: 'rotate(0deg)' }, '20%': { transform: 'rotate(-7deg)' }, '40%': { transform: 'rotate(7deg)' }, '60%': { transform: 'rotate(-5deg)' }, '80%': { transform: 'rotate(5deg)' } },
-        slideup:  { '0%': { transform: 'translateY(40px) rotate(-12deg)' }, '100%': { transform: 'translateY(-190px) rotate(24deg)' } },
-        sweep:    { '0%': { transform: 'translateX(-120%) rotate(0deg)' }, '100%': { transform: 'translateX(120%) rotate(360deg)' } },
         typing:   { '0%,100%': { opacity: '1' }, '50%': { opacity: '0' } },
         grow:     { '0%': { transform: 'scale(.2)', opacity:'0' }, '50%': { opacity:'.9' }, '100%': { transform: 'scale(1.6)', opacity:'0' } },
         squash:   { '0%,100%': { transform: 'scale(1,1)' }, '30%': { transform: 'scale(1.18,.85)' }, '60%': { transform: 'scale(.92,1.1)' } },
-        confetti: { '0%': { transform: 'translate3d(0,0,0) rotate(0deg)', opacity:'1' }, '100%': { transform: 'translate3d(var(--dx),var(--dy),0) rotate(var(--rot)), opacity:'0' } },
+        confetti: { '0%': { transform: 'translate3d(0,0,0) rotate(0deg)', opacity:'1' }, '100%': { transform: 'translate3d(var(--dx),var(--dy),0) rotate(var(--rot))', opacity:'0' } },
         wobble:   { '0%,100%': { transform: 'translateY(0)' }, '25%': { transform: 'translateY(-6px) rotate(-2deg)' }, '75%': { transform: 'translateY(-3px) rotate(2deg)' } },
-        twinkle:  { '0%,100%': { opacity:'.15', transform: 'scale(.6)' }, '50%': { opacity:'1', transform: 'scale(1.1)' } }
+        twinkle:  { '0%,100%': { opacity:'.15', transform: 'scale(.6)' }, '50%': { opacity:'1', transform: 'scale(1.1)' } },
+        rise:     { '0%': { transform: 'translateY(0) scale(.4)', opacity:'0' }, '20%': { opacity:'1' }, '100%': { transform: 'translateY(-120px) scale(1.15)', opacity:'0' } },
+        swirl:    { '0%,100%': { transform: 'rotate(-8deg) translateX(0)' }, '50%': { transform: 'rotate(8deg) translateX(10px)' } },
+        bounceIn: { '0%': { transform: 'scale(.4)', opacity:'0' }, '60%': { transform: 'scale(1.1)', opacity:'1' }, '100%': { transform: 'scale(1)', opacity:'1' } },
+        fall:     { '0%': { transform: 'translateY(-60px) rotate(0deg)', opacity:'0' }, '10%': { opacity:'1' }, '100%': { transform: 'translateY(105vh) rotate(540deg)', opacity:'0' } }
       },
       animation: {
         floaty: 'floaty 4.5s ease-in-out infinite',
@@ -60,17 +62,17 @@ tailwind.config = {
         heartbeat: 'heartbeat 1.4s ease-in-out infinite',
         blink: 'blink 5s infinite',
         pop: 'pop .55s cubic-bezier(.34,1.56,.64,1) both',
-        fall: 'fall linear forwards',
-        rise: 'rise 2.6s ease-out forwards',
         sunspin: 'sunspin 1.1s ease-out forwards',
         shake: 'shake .6s ease-in-out infinite',
-        slideup: 'slideup 1.1s cubic-bezier(.5,-0.2,.4,1.2) forwards',
-        sweep: 'sweep 1.8s linear infinite',
         typing: 'typing .9s step-end infinite',
         grow: 'grow 1.4s ease-out forwards',
         squash: 'squash .5s ease-in-out',
         wobble: 'wobble 3.2s ease-in-out infinite',
-        twinkle: 'twinkle 2.4s ease-in-out infinite'
+        twinkle: 'twinkle 2.4s ease-in-out infinite',
+        rise: 'rise 1.6s ease-out forwards',
+        swirl: 'swirl 2.6s ease-in-out infinite',
+        bounceIn: 'bounceIn .5s cubic-bezier(.34,1.56,.64,1) both',
+        fall: 'fall linear forwards'
       }
     }
   }
@@ -80,38 +82,85 @@ tailwind.config = {
   html,body { -webkit-tap-highlight-color: transparent; }
   body {
     background:
-      radial-gradient(1000px 700px at 10% -10%, #ffd6e8 0%, transparent 55%),
-      radial-gradient(900px 700px at 110% 15%, #ffe9c9 0%, transparent 50%),
-      radial-gradient(900px 900px at 50% 120%, #ffc2dc 0%, transparent 60%),
+      radial-gradient(1000px 700px at 8% -12%, #ffd6e8 0%, transparent 55%),
+      radial-gradient(900px 700px at 112% 12%, #ffe9c9 0%, transparent 50%),
+      radial-gradient(900px 900px at 50% 122%, #ffc2dc 0%, transparent 60%),
       #FFF8F5;
     background-attachment: fixed;
   }
-  .glass { background: rgba(255,255,255,.62); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-  .stage { opacity: 0; transform: scale(.92) translateY(24px); pointer-events: none; transition: opacity .55s ease, transform .65s cubic-bezier(.34,1.56,.64,1); }
+  .glass { background: rgba(255,255,255,.66); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .stage { opacity: 0; transform: scale(.94) translateY(22px); pointer-events: none; transition: opacity .5s ease, transform .6s cubic-bezier(.34,1.56,.64,1); }
   .stage.show { opacity: 1; transform: none; pointer-events: auto; }
-  .stage.out { opacity: 0; transform: scale(1.06) translateY(-18px); pointer-events: none; }
-  .paper {
-    background:
-      linear-gradient(180deg,#fffdfb,#fff6f9);
-    box-shadow: 0 30px 70px -30px rgba(91,53,71,.55), 0 2px 0 #fff inset;
-  }
-  .airmail {
-    border: 4px dashed transparent;
-    border-image: repeating-linear-gradient(45deg, #ff5f96 0 14px, #fff 14px 28px, #7ec9b3 28px 42px, #fff 42px 56px) 12;
-  }
+  .stage.out { opacity: 0; transform: scale(1.05) translateY(-16px); pointer-events: none; }
+  .paper { background: linear-gradient(180deg,#fffdfb,#fff6f9); box-shadow: 0 30px 70px -30px rgba(91,53,71,.55); }
+  .airmail { border: 4px dashed transparent; border-image: repeating-linear-gradient(45deg, #ff5f96 0 14px, #fff 14px 28px, #7ec9b3 28px 42px, #fff 42px 56px) 12; }
   .candy-btn { transition: transform .18s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, filter .2s ease; }
   .candy-btn:hover { transform: translateY(-3px) scale(1.04); filter: saturate(1.12); }
   .candy-btn:active { transform: translateY(1px) scale(.97); }
-  .cursor-heart { position: fixed; pointer-events: none; z-index: 60; font-size: 16px; animation: rise 1.6s ease-out forwards; }
+  .txt-shadow { text-shadow: 0 3px 0 rgba(255,255,255,.85), 0 8px 22px rgba(244,63,125,.25); }
+  .tape { position:absolute; width:92px; height:26px; background: rgba(255,255,255,.55); border-left:2px dashed rgba(244,63,125,.22); border-right:2px dashed rgba(244,63,125,.22); backdrop-filter: blur(2px); }
+  .rainbow-text { background: linear-gradient(90deg,#ff5f96,#ff9dc4,#ffc371,#7ec9b3,#9bb6ff,#c58cff,#ff5f96); background-size:300% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:sweep 7s linear infinite; }
   .float-item { animation: floaty linear infinite; }
   .spark { animation: twinkle ease-in-out infinite; }
-  .txt-shadow { text-shadow: 0 3px 0 rgba(255,255,255,.85), 0 8px 22px rgba(244,63,125,.25); }
-  .tape { position:absolute; width: 92px; height: 26px; background: rgba(255,255,255,.55); border-left: 2px dashed rgba(244,63,125,.25); border-right: 2px dashed rgba(244,63,125,.25); backdrop-filter: blur(2px); }
-  .glow-ring { position:absolute; border-radius:9999px; filter: blur(14px); }
-  .rainbow-text { background: linear-gradient(90deg,#ff5f96,#ff9dc4,#ffc371,#7ec9b3,#9bb6ff,#c58cff,#ff5f96); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sweep 7s linear infinite; }
+  .tape-rot { transform: rotate(-6deg); }
+
+
+  /* ===== KEYFRAMES LOKAL (jaminan animasi jalan walau CDN telat) ===== */
+  @keyframes floaty   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+  @keyframes floaty2  { 0%,100%{transform:translateY(0) rotate(-4deg)} 50%{transform:translateY(-22px) rotate(4deg)} }
+  @keyframes bobbing  { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-8px) scale(1.02)} }
+  @keyframes wiggle   { 0%,100%{transform:rotate(-4deg)} 50%{transform:rotate(4deg)} }
+  @keyframes wiggle2  { 0%,100%{transform:rotate(5deg)} 50%{transform:rotate(-5deg)} }
+  @keyframes heartbeat{ 0%,100%{transform:scale(1)} 14%{transform:scale(1.15)} 28%{transform:scale(.97)} 42%{transform:scale(1.1)} }
+  @keyframes blink    { 0%,92%,100%{transform:scaleY(1)} 95%{transform:scaleY(.08)} }
+  @keyframes pop      { 0%{transform:scale(.6);opacity:0} 60%{transform:scale(1.12);opacity:1} 100%{transform:scale(1);opacity:1} }
+  @keyframes sunspin  { 0%{transform:rotate(0) scale(.6);opacity:0} 30%{opacity:.85} 100%{transform:rotate(180deg) scale(1.5);opacity:0} }
+  @keyframes shake    { 0%,100%{transform:rotate(0)} 20%{transform:rotate(-7deg)} 40%{transform:rotate(7deg)} 60%{transform:rotate(-5deg)} 80%{transform:rotate(5deg)} }
+  @keyframes typing   { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes grow     { 0%{transform:scale(.2);opacity:0} 50%{opacity:.9} 100%{transform:scale(1.6);opacity:0} }
+  @keyframes squash   { 0%,100%{transform:scale(1,1)} 30%{transform:scale(1.18,.85)} 60%{transform:scale(.92,1.1)} }
+  @keyframes confetti { 0%{transform:translate3d(0,0,0) rotate(0);opacity:1} 100%{transform:translate3d(var(--dx),var(--dy),0) rotate(var(--rot));opacity:0} }
+  @keyframes wobble   { 0%,100%{transform:translateY(0)} 25%{transform:translateY(-6px) rotate(-2deg)} 75%{transform:translateY(-3px) rotate(2deg)} }
+  @keyframes twinkle  { 0%,100%{opacity:.15;transform:scale(.6)} 50%{opacity:1;transform:scale(1.1)} }
+  @keyframes rise     { 0%{transform:translateY(0) scale(.4);opacity:0} 20%{opacity:1} 100%{transform:translateY(-120px) scale(1.15);opacity:0} }
+  @keyframes swirl    { 0%,100%{transform:rotate(-8deg) translateX(0)} 50%{transform:rotate(8deg) translateX(10px)} }
+  @keyframes bounceIn { 0%{transform:scale(.4);opacity:0} 60%{transform:scale(1.1);opacity:1} 100%{transform:scale(1);opacity:1} }
+  @keyframes fall     { 0%{transform:translateY(-60px) rotate(0);opacity:0} 10%{opacity:1} 100%{transform:translateY(105vh) rotate(540deg);opacity:0} }
+  @keyframes sweep    { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
+
+  /* ===== CHARACTER EXPRESSIONS ===== */
+  .girl .expr { display: none; }
+  .girl.e-happy .x-happy, .girl.e-joy .x-joy, .girl.e-shy .x-shy, .girl.e-o .x-o { display: block; }
+  .girl .eyes { transform-box: fill-box; transform-origin: center; animation: blink 5.5s infinite; }
+  .girl .g-wave { transform-origin: 84px 176px; animation: wiggle 1.4s ease-in-out infinite; }
+  .girl .g-wave2 { transform-origin: 176px 176px; animation: wiggle2 2.4s ease-in-out infinite; }
+  .girl .g-bun { transform-box: fill-box; transform-origin: center; animation: floaty2 3.6s ease-in-out infinite; }
+  .girl .g-bun2 { transform-box: fill-box; transform-origin: center; animation: floaty2 3.6s ease-in-out infinite .4s; }
+  .girl .g-float { animation: floaty 3.4s ease-in-out infinite; }
+  .girl.hug { animation: squash .6s ease-in-out; }
+
+  /* ===== GAME PIECES ===== */
+  .heart-pick { position:absolute; font-size:30px; color:#ff5f96; filter: drop-shadow(0 6px 6px rgba(244,63,125,.45)); cursor:pointer; user-select:none; }
+  .balloon { position:absolute; width:62px; height:76px; border-radius:50% 50% 46% 46% / 62% 62% 38% 38%; display:flex; align-items:center; justify-content:center;
+             font-family:'Baloo 2',cursive; font-weight:800; font-size:28px; color:#5B3547; cursor:pointer; user-select:none;
+             background: radial-gradient(circle at 32% 28%, #fff 0%, #ffd9e8 35%, #ff8fb5 100%); box-shadow:0 10px 22px -8px rgba(244,63,125,.6); }
+  .balloon::after { content:''; position:absolute; bottom:-16px; left:50%; width:2px; height:16px; background:rgba(91,53,71,.35); }
+  .balloon::before { content:''; position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:8px solid #ff8fb5; }
+  .balloon.pop { animation: balloonPop .35s ease-out forwards; }
+  @keyframes balloonPop { 0%{transform:scale(1)} 40%{transform:scale(1.25)} 100%{transform:scale(0) rotate(30deg); opacity:0} }
+  .slot { width:38px; height:46px; border-radius:12px; border:2px dashed #ffc9de; background:#fff; display:flex; align-items:center; justify-content:center;
+          font-family:'Baloo 2',cursive; font-weight:800; font-size:22px; color:#f43f7d; }
+  .slot.filled { border-style:solid; border-color:#ff83ad; background:#ffe6f0; }
+  .bubble { position:relative; background:#fff; border:2px solid #ffc9de; border-radius:20px; padding:12px 16px; }
+  .bubble::after { content:''; position:absolute; left:26px; bottom:-11px; width:18px; height:18px; background:#fff; border-right:2px solid #ffc9de; border-bottom:2px solid #ffc9de; transform:rotate(45deg); }
+  .tip { position:relative; }
+  .tip::after { content:''; position:absolute; right:18px; top:-9px; width:16px; height:16px; background:rgba(255,255,255,.7); border-left:2px solid rgba(244,63,125,.2); border-top:2px solid rgba(244,63,125,.2); transform:rotate(45deg); }
+  .balloon-tex { text-shadow: 0 2px 6px rgba(91,53,71,.35); }
+  .meter-zone { position:absolute; top:0; bottom:0; background:linear-gradient(180deg,rgba(255,92,150,.85),rgba(255,166,199,.85)); box-shadow:0 0 22px rgba(255,92,150,.7); }
+  .meter-needle { position:absolute; top:-8px; bottom:-8px; width:6px; border-radius:6px; background:#5B3547; box-shadow:0 0 0 3px #fff; }
   @media print {
-    body { background: #fff !important; }
-    .no-print { display: none !important; }
+    body { background:#fff !important; }
+    .no-print { display:none !important; }
     .stage { opacity:1 !important; transform:none !important; }
   }
 </style>
@@ -119,321 +168,193 @@ tailwind.config = {
 
 <body class="font-body text-cocoa min-h-screen overflow-x-hidden">
 
-<!-- ===== BACKGROUND DECOR ===== -->
 <div id="bgLayer" class="fixed inset-0 pointer-events-none overflow-hidden -z-10"></div>
-<div class="fixed inset-0 pointer-events-none -z-10 opacity-[.35] mix-blend-multiply"
-     style="background-image:radial-gradient(rgba(244,63,125,.10) 1px, transparent 1px); background-size:22px 22px;"></div>
 
-<!-- ===== MASCOT SYMBOLS ===== -->
-<svg width="0" height="0" class="absolute" aria-hidden="true">
-  <defs>
-    <symbol id="m-bear" viewBox="0 0 120 130">
-      <ellipse cx="60" cy="122" rx="34" ry="6" fill="rgba(91,53,71,.10)"/>
-      <g class="floaty2">
-        <circle cx="30" cy="34" r="15" fill="#f3c9a4"/><circle cx="30" cy="34" r="7" fill="#f8b3c9"/>
-        <circle cx="90" cy="34" r="15" fill="#f3c9a4"/><circle cx="90" cy="34" r="7" fill="#f8b3c9"/>
-        <ellipse cx="60" cy="98" rx="32" ry="26" fill="#f7d3b0"/>
-        <ellipse cx="60" cy="102" rx="19" ry="16" fill="#fff0e2"/>
-        <circle cx="60" cy="46" r="30" fill="#f7d3b0"/>
-        <ellipse cx="60" cy="57" rx="16" ry="12" fill="#fff0e2"/>
-        <circle cx="49" cy="42" r="4" fill="#5B3547"/><circle cx="71" cy="42" r="4" fill="#5B3547"/>
-        <circle cx="50.5" cy="40.5" r="1.5" fill="#fff"/><circle cx="72.5" cy="40.5" r="1.5" fill="#fff"/>
-        <ellipse cx="60" cy="52" rx="4.5" ry="3.2" fill="#5B3547"/>
-        <path d="M60 55 q0 5 -5 6 M60 55 q0 5 5 6" stroke="#5B3547" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="38" cy="53" rx="6" ry="4" fill="#ff9dc4" opacity=".75"/>
-        <ellipse cx="82" cy="53" rx="6" ry="4" fill="#ff9dc4" opacity=".75"/>
-        <path d="M44 82 L60 90 L76 82 L60 100 Z" fill="#ff5f96"/><circle cx="60" cy="89" r="6" fill="#ff83ad"/>
-      </g>
-    </symbol>
-
-    <symbol id="m-cat" viewBox="0 0 120 130">
-      <ellipse cx="60" cy="122" rx="32" ry="6" fill="rgba(91,53,71,.10)"/>
-      <g class="floaty">
-        <path d="M40 118 q-14 -4 -6 -18 q6 -10 14 -6" fill="none" stroke="#ffd9e8" stroke-width="9" stroke-linecap="round"/>
-        <ellipse cx="60" cy="96" rx="30" ry="24" fill="#ffe1ec"/>
-        <path d="M32 30 L34 8 L54 22 Z" fill="#ffe1ec"/><path d="M88 30 L86 8 L66 22 Z" fill="#ffe1ec"/>
-        <path d="M36 26 L37 14 L48 22 Z" fill="#ffb3cf"/><path d="M84 26 L83 14 L72 22 Z" fill="#ffb3cf"/>
-        <circle cx="60" cy="50" r="28" fill="#ffe1ec"/>
-        <ellipse cx="60" cy="60" rx="15" ry="11" fill="#fff6fa"/>
-        <circle cx="49" cy="47" r="4.2" fill="#5B3547"/><circle cx="71" cy="47" r="4.2" fill="#5B3547"/>
-        <circle cx="50.5" cy="45.5" r="1.6" fill="#fff"/><circle cx="72.5" cy="45.5" r="1.6" fill="#fff"/>
-        <ellipse cx="60" cy="57" rx="3.6" ry="2.6" fill="#ff5f96"/>
-        <path d="M60 60 q0 4 -4 5 M60 60 q0 4 4 5" stroke="#5B3547" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <g stroke="#ffb3cf" stroke-width="1.6" stroke-linecap="round">
-          <path d="M32 58 L12 54"/><path d="M32 63 L13 64"/><path d="M88 58 L108 54"/><path d="M88 63 L107 64"/>
-        </g>
-        <ellipse cx="38" cy="57" rx="6" ry="4" fill="#ff9dc4" opacity=".8"/>
-        <ellipse cx="82" cy="57" rx="6" ry="4" fill="#ff9dc4" opacity=".8"/>
-        <path d="M52 100 q8 6 16 0" fill="none" stroke="#ff5f96" stroke-width="3" stroke-linecap="round"/>
-      </g>
-    </symbol>
-
-    <symbol id="m-bunny" viewBox="0 0 120 140">
-      <ellipse cx="60" cy="130" rx="30" ry="6" fill="rgba(91,53,71,.10)"/>
-      <g class="floaty2">
-        <g class="wiggle"><ellipse cx="44" cy="22" rx="10" ry="26" fill="#fff0f6"/><ellipse cx="44" cy="24" rx="5" ry="18" fill="#ffc2dc"/></g>
-        <g class="wiggle2" style="animation-delay:.15s"><ellipse cx="76" cy="22" rx="10" ry="26" fill="#fff0f6"/><ellipse cx="76" cy="24" rx="5" ry="18" fill="#ffc2dc"/></g>
-        <ellipse cx="60" cy="104" rx="28" ry="22" fill="#fff0f6"/>
-        <circle cx="60" cy="58" r="28" fill="#fff0f6"/>
-        <ellipse cx="60" cy="68" rx="14" ry="10" fill="#fff8fb"/>
-        <circle cx="49" cy="54" r="4.2" fill="#5B3547"/><circle cx="71" cy="54" r="4.2" fill="#5B3547"/>
-        <circle cx="50.5" cy="52.5" r="1.6" fill="#fff"/><circle cx="72.5" cy="52.5" r="1.6" fill="#fff"/>
-        <ellipse cx="60" cy="64" rx="3.4" ry="2.4" fill="#ff5f96"/>
-        <path d="M60 66 q0 4 -4 5 M60 66 q0 4 4 5" stroke="#5B3547" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <ellipse cx="38" cy="63" rx="6" ry="4" fill="#ff9dc4" opacity=".8"/>
-        <ellipse cx="82" cy="63" rx="6" ry="4" fill="#ff9dc4" opacity=".8"/>
-        <path d="M42 96 q18 10 36 0" fill="none" stroke="#ffc2dc" stroke-width="5" stroke-linecap="round"/>
-      </g>
-    </symbol>
-
-    <symbol id="m-ghost" viewBox="0 0 120 130">
-      <ellipse cx="60" cy="120" rx="30" ry="6" fill="rgba(91,53,71,.10)"/>
-      <g class="floaty">
-        <path d="M22 118 q0 -14 8 -16 q-4 -12 6 -18 q-4 -14 8 -20 q-2 -12 12 -14 q8 -8 16 0 q14 2 12 14 q12 6 8 20 q10 6 6 18 q8 2 8 16 z" fill="#ffffff" opacity=".92"/>
-        <circle cx="49" cy="62" r="4" fill="#5B3547"/><circle cx="71" cy="62" r="4" fill="#5B3547"/>
-        <ellipse cx="60" cy="73" rx="6" ry="4" fill="#ff9dc4"/>
-        <ellipse cx="38" cy="70" rx="6" ry="4" fill="#ffc2dc" opacity=".8"/>
-        <ellipse cx="82" cy="70" rx="6" ry="4" fill="#ffc2dc" opacity=".8"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
-<!-- ===== MUSIC TOGGLE ===== -->
+<!-- ============ MUSIC TOGGLE ============ -->
 <button id="btnMusic" class="no-print fixed top-4 right-4 z-50 hidden group candy-btn"
-        style="width:56px;height:56px;border-radius:9999px;background:linear-gradient(145deg,#ff8fb5,#ff5f96);box-shadow:0 12px 30px -10px rgba(244,63,125,.7)">
+        style="width:54px;height:54px;border-radius:9999px;background:linear-gradient(145deg,#ff8fb5,#ff5f96);box-shadow:0 12px 30px -10px rgba(244,63,125,.7)">
   <i id="musicIcon" class="fa-solid fa-volume-xmark text-white text-lg"></i>
-  <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-bold text-bubblegum-700 bg-white/80 px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition whitespace-nowrap">musik</span>
+  <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-bold text-bubblegum-700 bg-white/85 px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition whitespace-nowrap">musik</span>
 </button>
 
-<!-- ===== STAGE 1: LOADER ===== -->
+<!-- ============ CHAPTER BAR ============ -->
+<div id="chapterBar" class="no-print fixed top-4 left-1/2 -translate-x-1/2 z-40 hidden">
+  <div class="glass rounded-full px-4 py-2 shadow-card border border-white flex items-center gap-3">
+    <span id="chapterLabel" class="font-display font-bold text-sm text-bubblegum-700 whitespace-nowrap">Tantangan 1 dari 3</span>
+    <span id="chapterDots" class="flex gap-1.5"></span>
+  </div>
+</div>
+
+<!-- ============ LOADER ============ -->
 <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6">
   <div class="relative">
-    <div class="glow-ring w-44 h-44 bg-bubblegum-300/60 -z-10 animate-grow"></div>
-    <svg viewBox="0 0 120 120" class="w-32 h-32 animate-heartbeat">
-      <path d="M60 108 C20 78 8 58 8 40 A26 26 0 0 1 60 26 A26 26 0 0 1 112 40 C112 58 100 78 60 108Z" fill="url(#hg)"/>
-      <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fb5"/><stop offset="1" stop-color="#ff5f96"/></linearGradient></defs>
+    <div class="absolute inset-0 m-auto w-44 h-44 rounded-full bg-bubblegum-300/60 blur-3xl animate-grow"></div>
+    <svg viewBox="0 0 120 120" class="w-28 h-28 animate-heartbeat relative">
+      <path d="M60 108C20 78 8 58 8 40A26 26 0 0 1 60 26a26 26 0 0 1 52 14c0 18-12 38-52 68Z" fill="#ff5f96"/>
       <ellipse cx="42" cy="46" rx="8" ry="5" fill="#fff" opacity=".55" transform="rotate(-25 42 46)"/>
     </svg>
   </div>
   <div class="text-center">
     <p class="font-display text-2xl md:text-3xl rainbow-text font-extrabold">Menyiapkan Surprise...</p>
-    <p class="text-bubblegum-600 text-sm mt-1 animate-pulse">mengusik kotak kecil di hatiku <i class="fa-solid fa-wand-sparkles ml-1"></i></p>
+    <p class="text-bubblegum-600 text-sm mt-1 animate-pulse">mengusik kotak kecil di hatiku</p>
   </div>
-  <div class="w-56 h-2.5 bg-white/70 rounded-full overflow-hidden shadow-inner">
+  <div class="w-56 h-2.5 bg-white/70 rounded-full overflow-hidden shadow-inset">
     <div id="loadBar" class="h-full w-0 rounded-full bg-gradient-to-r from-bubblegum-400 to-bubblegum-600 transition-all duration-300"></div>
   </div>
 </div>
 
-<!-- ===== STAGE 2: HELLO ===== -->
-<div id="stageHello" class="stage fixed inset-0 z-30 flex items-center justify-center p-4 overflow-y-auto">
-  <div class="relative w-full max-w-2xl">
-    <svg class="absolute -top-6 -left-6 w-20 h-20 animate-floaty2 hidden sm:block"><use href="#m-bear"/></svg>
-    <svg class="absolute -bottom-4 -right-4 w-24 h-24 animate-floaty hidden sm:block"><use href="#m-cat"/></svg>
+<!-- ============ STAGE 1 : HERO / SAMBUTAN ============ -->
+<div id="stageHero" class="stage fixed inset-0 z-30 flex items-center justify-center p-4 overflow-y-auto">
+  <div class="relative w-full max-w-3xl">
+    <div class="grid md:grid-cols-[.9fr_1.1fr] gap-4 items-center glass rounded-[2.5rem] shadow-soft border-2 border-white/70 p-6 md:p-9 relative overflow-hidden">
+      <div class="absolute -top-20 -left-16 w-56 h-56 bg-bubblegum-200/50 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-20 -right-16 w-56 h-56 bg-amber-200/50 rounded-full blur-3xl"></div>
 
-    <div class="glass rounded-[2.5rem] shadow-soft p-8 md:p-12 text-center border-2 border-white/70 relative overflow-hidden">
-      <div class="absolute -top-16 -left-10 w-48 h-48 bg-bubblegum-200/50 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-16 -right-10 w-48 h-48 bg-amber-200/50 rounded-full blur-3xl"></div>
+      <!-- KARAKTER -->
+      <div class="relative mx-auto w-[210px] h-[250px] md:w-[250px] md:h-[300px]">
+        <div id="heroGirl" class="w-full h-full animate-bobbing"></div>
+        <div class="absolute -top-1 -right-2 text-2xl text-bubblegum-400 animate-heartbeat"><i class="fa-solid fa-heart"></i></div>
+      </div>
 
-      <div class="relative">
-        <p class="font-cute text-sm tracking-[.3em] text-bubblegum-500 uppercase">to my favorite person</p>
-        <h1 class="font-display font-extrabold text-4xl md:text-6xl text-bubblegum-600 txt-shadow mt-2 leading-tight">
-          Ada Satu Kotak<br class="hidden sm:block"> yang Menunggu Kamu
-        </h1>
-        <p class="mt-4 text-cocoa/80 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-          Di dalam kotak ini ada sesuatu yang aku nyiapin lama banget...
-          tapi aku rasa ada tiket masuknya. <span class="font-bold text-bubblegum-600">Nggak boleh asal buka.</span> <i class=\"fa-solid fa-face-smile-beam ml-1\"></i>
-        </p>
-
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-bold text-bubblegum-700">
-          <span class="px-3 py-1.5 rounded-full bg-bubblegum-100 border border-bubblegum-200"><i class="fa-solid fa-ribbon mr-1"></i>challenged</span>
-          <span class="px-3 py-1.5 rounded-full bg-mint/40 border border-mint"><i class="fa-solid fa-gamepad mr-1"></i>mini game</span>
-          <span class="px-3 py-1.5 rounded-full bg-amber-100 border border-amber-200"><i class="fa-solid fa-box mr-1"></i>mystery box</span>
-          <span class="px-3 py-1.5 rounded-full bg-violet-100 border border-violet-200"><i class="fa-solid fa-envelope mr-1"></i>surat cinta</span>
+      <div class="relative text-center md:text-left">
+        <p class="font-cute text-xs tracking-[.3em] text-bubblegum-500 uppercase">to my favorite person</p>
+        <h1 class="font-display font-extrabold text-3xl md:text-5xl text-bubblegum-600 txt-shadow mt-2 leading-tight">Hai, Sayang!</h1>
+        <div class="bubble mt-4 text-left">
+          <p id="heroLine" class="font-cute text-[15px] leading-relaxed text-cocoa">Aku nyiapin sesuatu yang special. Tapi ada 3 tantangan dulu, ya? Tenang, semuanya gampang kok. Kalau berhasil, aku kasih tahu kamu satu rahasia besar.</p>
         </div>
-
-        <button id="btnStart" class="mt-9 candy-btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-bubblegum-500 via-bubblegum-400 to-bubblegum-600 text-white font-display text-lg font-bold shadow-glow">
-          <span>Mulai Petualangan</span>
-          <span class="animate-bounce"><i class="fa-solid fa-arrow-right "></i></span>
+        <div class="mt-5 flex flex-wrap gap-2 justify-center md:justify-start text-[11px] font-bold text-bubblegum-700">
+          <span class="px-3 py-1.5 rounded-full bg-bubblegum-100 border border-bubblegum-200"><i class="fa-solid fa-gamepad mr-1"></i>3 mini game</span>
+          <span class="px-3 py-1.5 rounded-full bg-mint/40 border border-mint"><i class="fa-solid fa-gift mr-1"></i>kotak rahasia</span>
+          <span class="px-3 py-1.5 rounded-full bg-violet-100 border border-violet-200"><i class="fa-solid fa-envelope-open-text mr-1"></i>surat dari aku</span>
+        </div>
+        <button id="btnStart" class="mt-6 candy-btn inline-flex items-center gap-3 px-7 py-4 rounded-full bg-gradient-to-r from-bubblegum-500 via-bubblegum-400 to-bubblegum-600 text-white font-display text-lg font-bold shadow-glow">
+          <span>Mulai Tantangan</span><i class="fa-solid fa-arrow-right animate-bounce"></i>
         </button>
-        <p class="mt-4 text-xs text-cocoa/55">sound effect & musik bisa dimatiin di kanan atas <i class="fa-solid fa-volume-high ml-1"></i></p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ===== STAGE 3: MINI GAME ===== -->
-<div id="stageGame" class="stage fixed inset-0 z-30 flex flex-col items-center justify-center p-4 overflow-hidden">
-  <div class="text-center mb-4 px-4">
-    <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow animate-wobble">Tangkap Hati yang Jatuh! <i class="fa-solid fa-heart text-bubblegum-500"></i></h2>
-    <p class="text-cocoa/75 mt-1 text-sm md:text-base">Klik / tap hatinya yang jatuh. Kumpulkan <b class="text-bubblegum-600">5 hati</b> untuk dapat kuncinya!</p>
+<!-- ============ STAGE 2 : GAMES ============ -->
+<div id="stageGame" class="stage fixed inset-0 z-30 flex flex-col items-center justify-center p-3 md:p-5 overflow-y-auto">
+  <div class="w-full max-w-3xl text-center mb-3">
+    <h2 id="gameTitle" class="font-display text-2xl md:text-4xl font-extrabold text-bubblegum-600 txt-shadow">Tangkap Hati</h2>
+    <p id="gameDesc" class="text-cocoa/75 mt-1 text-sm md:text-base">Arahkan keranjangmu untuk nangkep hati yang jatuh!</p>
   </div>
 
-  <div id="scoreBox" class="glass rounded-2xl px-5 py-2.5 font-display font-bold text-bubblegum-700 shadow-card border border-white/70 mb-3">
-    <span id="scoreText">0 / 5</span> hati tertangkap
+  <div class="glass relative rounded-[2rem] border-2 border-white/70 shadow-soft p-3 md:p-4 w-full max-w-3xl">
+    <!-- HUD -->
+    <div class="flex items-center justify-between gap-3 px-2 pb-3">
+      <div class="flex items-center gap-2 text-sm font-bold text-bubblegum-700">
+        <i class="fa-solid fa-heart text-bubblegum-500"></i><span id="hudScore">0</span>
+      </div>
+      <div id="hudGoal" class="text-xs font-bold text-cocoa/60 bg-white/80 px-3 py-1 rounded-full border border-white"></div>
+      <div id="hudLives" class="flex gap-1 text-bubblegum-500"></div>
+    </div>
+    <!-- AREA -->
+    <div id="gameArea" class="relative w-full h-[46vh] min-h-[300px] max-h-[520px] rounded-[1.4rem] overflow-hidden border-2 border-white bg-gradient-to-b from-bubblegum-50/80 to-bubblegum-100/50"></div>
+    <!-- OVERLAY HASIL -->
+    <div id="gameResult" class="hidden absolute inset-0 z-20 bg-white/80 backdrop-blur-sm rounded-[1.4rem] flex flex-col items-center justify-center text-center p-6" style="display:none"></div>
   </div>
 
-  <div id="gameArea" class="relative w-full max-w-4xl h-[46vh] min-h-[280px] rounded-[2rem] overflow-hidden border-2 border-white/70 shadow-soft glass">
-    <div class="absolute inset-0 bg-gradient-to-b from-bubblegum-50/50 to-bubblegum-100/40"></div>
-    <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-bubblegum-200/60 to-transparent"></div>
-    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-3xl opacity-60 animate-wobble"><i class="fa-solid fa-shopping-basket "></i></div>
-    <div id="heartSpawn" class="absolute inset-0"></div>
-    <div id="gameMsg" class="absolute inset-0 flex items-center justify-center pointer-events-none"></div>
-  </div>
-
-  <div class="mt-4 flex items-center gap-3">
-    <p id="gameTip" class="text-xs text-cocoa/60 bg-white/70 px-4 py-2 rounded-full border border-white">cepet-cepet, hatinya licin! <i class="fa-solid fa-face-smile-beam ml-1"></i></p>
-    <button id="btnGiveKey" class="hidden text-xs font-bold text-bubblegum-700 bg-white/80 border border-bubblegum-200 px-4 py-2 rounded-full candy-btn hover:bg-bubblegum-50">nggak jadi? kasih aku kuncinya dong <i class="fa-solid fa-face-sad-tear ml-1"></i></button>
+  <div class="mt-3 flex items-center gap-3">
+    <p id="gameTip" class="text-xs text-cocoa/65 bg-white/75 px-4 py-2 rounded-full border border-white"></p>
+    <button id="btnSkip" class="no-print hidden text-xs font-bold text-cocoa/60 bg-white/75 border border-bubblegum-200 px-4 py-2 rounded-full candy-btn">lewati tantangan ini</button>
   </div>
 </div>
 
-<!-- ===== STAGE 4: BOX ===== -->
+<!-- ============ STAGE 3 : KOTAK ============ -->
 <div id="stageBox" class="stage fixed inset-0 z-30 flex flex-col items-center justify-center p-4 overflow-y-auto">
-  <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow text-center">Kotak Rahasia Hadiah <i class="fa-solid fa-gift text-bubblegum-500"></i></h2>
-  <p id="boxSub" class="text-cocoa/75 mt-2 text-center text-sm md:text-base mb-4">Duh, terkunci. Kuncinya ada di tanganmu sekarang! <i class="fa-solid fa-key ml-1 text-bubblegum-500"></i></p>
+  <h2 class="font-display text-2xl md:text-4xl font-extrabold text-bubblegum-600 txt-shadow text-center">Kotak Rahasia <i class="fa-solid fa-gift"></i></h2>
+  <p id="boxSub" class="text-cocoa/75 mt-2 text-center text-sm md:text-base mb-2">Semua tantangan kelar! Kotaknya bisa dibuka sekarang.</p>
 
-  <div class="relative flex items-center justify-center my-2" id="boxWrap" style="height:340px;width:340px;max-width:90vw">
+  <div class="relative flex items-center justify-center my-2" id="boxWrap" style="height:300px;width:300px;max-width:88vw">
     <div id="boxGlow" class="absolute w-72 h-72 rounded-full bg-bubblegum-300/60 blur-3xl opacity-0 transition-opacity duration-700"></div>
     <div id="rays" class="absolute w-[560px] h-[560px] opacity-0 pointer-events-none" style="background:conic-gradient(from 0deg, rgba(255,255,255,.85) 0deg 6deg, transparent 6deg 18deg);mask:radial-gradient(circle, black 15%, transparent 62%);-webkit-mask:radial-gradient(circle, black 15%, transparent 62%);"></div>
 
-    <svg id="boxSvg" viewBox="0 0 260 260" class="relative w-[280px] h-[280px] max-w-[80vw]" style="filter:drop-shadow(0 24px 30px rgba(244,63,125,.35))">
+    <svg id="boxSvg" viewBox="0 0 260 260" class="relative w-[250px] h-[250px] max-w-[76vw]" style="filter:drop-shadow(0 24px 30px rgba(244,63,125,.35))">
       <g id="boxBody">
         <rect x="38" y="118" width="184" height="120" rx="16" fill="#ff8fb5"/>
-        <rect x="38" y="118" width="184" height="120" rx="16" fill="url(#boxShade)" opacity=".35"/>
         <rect x="108" y="118" width="44" height="120" fill="#ffd9e8"/>
-        <path d="M38 150 q46 26 92 0 q46 -26 92 0 v-8 q-46 -26 -92 0 q-46 26 -92 0z" fill="#ffb3cf" opacity=".5"/>
         <circle cx="130" cy="168" r="16" fill="#ffe6f0"/><circle cx="130" cy="168" r="8" fill="#ff5f96"/>
-        <defs><linearGradient id="boxShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs>
       </g>
       <g id="boxLid" class="cursor-pointer">
         <rect x="28" y="84" width="204" height="40" rx="14" fill="#ffa8c7"/>
         <rect x="108" y="84" width="44" height="40" fill="#fff0f6"/>
-        <path d="M130 84 q-34 -44 -56 -10 q-10 16 10 18 q26 3 46 -8z" fill="#ff5f96"/>
-        <path d="M130 84 q34 -44 56 -10 q10 16 -10 18 q-26 3 -46 -8z" fill="#ff5f96"/>
+        <path d="M130 84q-34-44-56-10-10 16 10 18 26 3 46-8z" fill="#ff5f96"/>
+        <path d="M130 84q34-44 56-10 10 16-10 18-26 3-46-8z" fill="#ff5f96"/>
         <circle cx="130" cy="84" r="12" fill="#ff83ad"/>
-        <circle cx="126" cy="80" r="4" fill="#ffd9e8" opacity=".8"/>
       </g>
     </svg>
-
-    <div id="keyTag" class="absolute -top-2 right-0 hidden">
-      <div class="animate-bobbing text-5xl drop-shadow-lg text-bubblegum-500"><i class="fa-solid fa-key "></i></div>
-    </div>
   </div>
 
   <div class="flex flex-wrap items-center justify-center gap-3">
     <button id="btnOpenBox" class="candy-btn inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-bubblegum-500 to-bubblegum-600 text-white font-display text-lg font-bold shadow-glow">
-      <span>Buka Kotaknya!</span> <span class="animate-bounce"><i class="fa-solid fa-wand-magic-sparkles "></i></span>
+      <span>Buka Kotaknya!</span><i class="fa-solid fa-wand-magic-sparkles animate-bounce"></i>
     </button>
-    <button id="btnShakeBox" class="candy-btn px-5 py-3 rounded-full bg-white/80 border-2 border-bubblegum-200 text-bubblegum-700 font-bold text-sm">Goyang dulu <i class="fa-solid fa-face-smile-beam ml-1"></i></button>
+    <button id="btnShakeBox" class="candy-btn px-5 py-3 rounded-full bg-white/80 border-2 border-bubblegum-200 text-bubblegum-700 font-bold text-sm">Goyang dulu</button>
   </div>
 </div>
 
-<!-- ===== STAGE 5: LETTER ===== -->
+<!-- ============ STAGE 4 : SURAT ============ -->
 <div id="stageLetter" class="stage fixed inset-0 z-30 overflow-y-auto">
-  <div class="min-h-full flex flex-col items-center px-4 py-10">
-
+  <div class="min-h-full flex flex-col items-center px-4 py-12">
     <div class="text-center mb-6">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-bubblegum-200 text-bubblegum-700 font-bold text-xs shadow-card">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-bubblegum-200 text-bubblegum-700 font-bold text-xs shadow-card">
         <span class="w-2 h-2 rounded-full bg-bubblegum-500 animate-ping"></span> pesan ini cuma buat kamu
-      </div>
-      <h2 class="font-display text-3xl md:text-5xl font-extrabold text-bubblegum-600 txt-shadow mt-3">Surat dari powered by love <i class="fa-solid fa-envelope-open-text text-bubblegum-500"></i></h2>
+      </span>
+      <h2 class="font-display text-2xl md:text-4xl font-extrabold text-bubblegum-600 txt-shadow mt-3">Surat dari powered by love <i class="fa-solid fa-envelope-open-text"></i></h2>
     </div>
 
-    <div class="w-full max-w-4xl grid lg:grid-cols-[1.1fr_.9fr] gap-6 items-start">
-
-      <!-- PAPER -->
+    <div class="w-full max-w-5xl grid lg:grid-cols-[1.15fr_.85fr] gap-6 items-start">
+      <!-- KERTAS -->
       <div class="paper airmail rounded-[1.75rem] p-6 md:p-9 relative animate-pop">
         <div class="tape -top-3 left-8 -rotate-6"></div>
         <div class="tape -top-3 right-8 rotate-6"></div>
-
         <div class="flex items-start justify-between gap-4 border-b-2 border-dashed border-bubblegum-200 pb-4">
           <div>
             <p class="text-xs uppercase tracking-[.25em] text-bubblegum-400 font-bold">Surat Maaf</p>
-            <p class="font-display text-2xl font-extrabold text-cocoa mt-1">Untuk Pacarku Tercinta</p>
+            <p class="font-display text-xl md:text-2xl font-extrabold text-cocoa mt-1">Untuk Pacarku Tercinta</p>
           </div>
-          <svg class="w-16 h-16 shrink-0 animate-heartbeat" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9A5.5 5.5 0 0 1 12 5.8 5.5 5.5 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z" fill="#ff5f96"/></svg>
+          <i class="fa-solid fa-heart text-3xl text-bubblegum-500 animate-heartbeat"></i>
         </div>
-
-        <div id="letterBody" class="mt-5 text-[15px] md:text-[16.5px] leading-[1.85] text-cocoa/90 whitespace-pre-line min-h-[240px]"></div>
+        <div id="letterBody" class="mt-5 text-[15px] md:text-[16.5px] leading-[1.85] text-cocoa/90 min-h-[220px]"></div>
         <span id="caret" class="inline-block w-[3px] h-5 bg-bubblegum-500 align-middle animate-typing"></span>
-
-        <div class="mt-7 flex items-end justify-between gap-4 border-t-2 border-dashed border-bubblegum-200 pt-5">
+        <div id="letterEnd" class="mt-7 items-end justify-between gap-4 border-t-2 border-dashed border-bubblegum-200 pt-5" style="display:none">
           <div>
-            <p class="font-display text-xl font-extrabold text-bubblegum-600">Sarang, cincau <i class="fa-solid fa-heart text-bubblegum-500"></i></p>
+            <p class="font-display text-xl font-extrabold text-bubblegum-600">Sarang, cincau <i class="fa-solid fa-heart"></i></p>
             <p class="text-xs text-cocoa/60 mt-0.5">dari orang yang lagi belajar jadi lebih baik</p>
           </div>
-          <div class="text-3xl animate-wiggle text-bubblegum-500"><i class="fa-solid fa-envelope "></i></div>
+          <i class="fa-solid fa-envelope text-3xl text-bubblegum-500 animate-wiggle"></i>
+        </div>
+
+        <!-- POLAROID -->
+        <div id="polaroids" class="mt-7 grid-cols-3 gap-3" style="display:none">
+          <div class="bg-white p-2 pb-6 rounded-lg shadow-card -rotate-3 hover:rotate-0 transition-transform cursor-pointer" data-cap="Malam pertama bareng kamu">
+            <svg viewBox="0 0 120 100" class="w-full rounded bg-[#4b3a72]"><circle cx="88" cy="26" r="13" fill="#ffe6a8"/><circle cx="20" cy="24" r="2" fill="#fff"/><circle cx="48" cy="14" r="1.6" fill="#fff"/><circle cx="70" cy="46" r="1.6" fill="#fff"/><path d="M0 78q30-14 60 0t60 0v22H0z" fill="#3b2f5c"/><circle cx="46" cy="72" r="9" fill="#ff8fb5"/><circle cx="46" cy="72" r="4" fill="#ffe3d0"/><circle cx="66" cy="76" r="8" fill="#7ec9b3"/><circle cx="66" cy="76" r="3.5" fill="#ffe3d0"/><path d="M50 66q6-6 12 0" stroke="#fff" fill="none" stroke-width="2"/></svg>
+            <p class="text-[9px] text-center mt-1 font-bold text-cocoa/70">Malam pertama bareng kamu</p>
+          </div>
+          <div class="bg-white p-2 pb-6 rounded-lg shadow-card rotate-2 hover:rotate-0 transition-transform cursor-pointer" data-cap="Balon hatiku melayang">
+            <svg viewBox="0 0 120 100" class="w-full rounded bg-gradient-to-b from-[#ffd9e8] to-[#ffb3cf]"><path d="M40 40c-9 0-16-8-16-17s7-15 16-15 16 7 16 16-7 16-16 16z" fill="#ff5f96"/><path d="M40 40v40" stroke="#fff" stroke-width="1.6"/><circle cx="46" cy="76" r="10" fill="#ffe3d0"/><path d="M38 70h16" stroke="#6b3f57" stroke-width="4" stroke-linecap="round"/><circle cx="78" cy="30" r="8" fill="#fff" opacity=".7"/><path d="M74 26h8M78 22v8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+            <p class="text-[9px] text-center mt-1 font-bold text-cocoa/70">Balon hatiku melayang</p>
+          </div>
+          <div class="bg-white p-2 pb-6 rounded-lg shadow-card -rotate-2 hover:rotate-0 transition-transform cursor-pointer" data-cap="Hujan, tapi tetep bareng">
+            <svg viewBox="0 0 120 100" class="w-full rounded bg-[#cfe6f5]"><path d="M0 74h120v26H0z" fill="#a9cde4"/><path d="M30 46a22 22 0 0 1 44 0z" fill="#ff83ad"/><path d="M52 46v26" stroke="#5B3547" stroke-width="2"/><g stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M16 20l-4 10"/><path d="M40 12l-4 10"/><path d="M96 24l-4 10"/><path d="M112 40l-4 10"/><path d="M28 50l-4 10"/></g><circle cx="44" cy="74" r="9" fill="#ffe3d0"/><circle cx="66" cy="76" r="8" fill="#ffe3d0"/></svg>
+            <p class="text-[9px] text-center mt-1 font-bold text-cocoa/70">Hujan, tapi tetep bareng</p>
+          </div>
         </div>
       </div>
 
-      <!-- CHARACTER PANEL -->
-      <div class="lg:sticky lg:top-8 space-y-4">
+      <!-- PANEL KARAKTER -->
+      <div class="lg:sticky lg:top-20 space-y-4">
         <div class="glass rounded-[2rem] shadow-card border-2 border-white/70 p-5 relative overflow-hidden">
-          <svg class="absolute -top-3 -left-3 w-16 h-16 animate-floaty2"><use href="#m-bunny"/></svg>
-          <svg class="absolute -bottom-3 -right-3 w-20 h-20 animate-floaty"><use href="#m-cat"/></svg>
-
-          <div id="charBox" class="relative mx-auto w-[220px] h-[260px]">
-            <!-- MAIN GIRL -->
-            <svg viewBox="0 0 220 260" class="w-full h-full animate-bobbing">
-              <ellipse cx="110" cy="250" rx="52" ry="8" fill="rgba(91,53,71,.12)"/>
-              <!-- hair back -->
-              <g class="animate-floaty">
-                <ellipse cx="110" cy="92" rx="62" ry="58" fill="#6b3f57"/>
-                <ellipse cx="46" cy="118" rx="24" ry="42" fill="#6b3f57"/>
-                <ellipse cx="174" cy="118" rx="24" ry="42" fill="#6b3f57"/>
-              </g>
-              <!-- body -->
-              <path d="M110 152 q34 0 40 30 l6 44 q-46 16 -92 0 l6 -44 q6 -30 40 -30z" fill="#ff8fb5"/>
-              <path d="M110 152 q-18 0 -24 14 q24 10 48 0 q-6 -14 -24 -14z" fill="#fff0f6"/>
-              <path d="M110 190 q20 0 30 -8 q4 10 0 20 q-16 8 -30 8z" fill="#ff5f96" opacity=".35"/>
-              <!-- arms -->
-              <g class="animate-wiggle" style="transform-origin: 70px 170px">
-                <path d="M74 170 q-22 6 -26 24 q-2 12 8 14 q10 2 14 -10 z" fill="#ff8fb5"/>
-                <circle cx="60" cy="204" r="12" fill="#ffe0d2"/>
-              </g>
-              <g class="animate-wiggle2" style="transform-origin: 150px 170px">
-                <path d="M146 170 q22 6 26 24 q2 12 -8 14 q-10 2 -14 -10 z" fill="#ff8fb5"/>
-                <circle cx="160" cy="204" r="12" fill="#ffe0d2"/>
-              </g>
-              <!-- heart in hands -->
-              <g class="animate-heartbeat">
-                <path d="M110 214 l-16 -14 q-9 -10 -2 -17 q7 -7 14 1 q3 4 4 6 q1 -2 4 -6 q7 -8 14 -1 q7 7 -2 17z" fill="#ff5f96"/>
-              </g>
-              <!-- head -->
-              <g>
-                <circle cx="110" cy="86" r="46" fill="#ffe0d2"/>
-                <!-- fringe -->
-                <path d="M64 82 q6 -46 46 -46 q40 0 46 46 q-10 -18 -24 -22 q-8 14 -22 16 q-22 4 -32 -6 q-10 2 -14 12z" fill="#6b3f57"/>
-                <!-- pigtails -->
-                <g class="animate-wiggle" style="transform-origin: 66px 90px">
-                  <circle cx="60" cy="72" r="9" fill="#ffb3cf"/>
-                  <path d="M60 68 q-22 4 -20 24 q2 18 20 16 q-14 -12 -8 -24 q4 -10 8 -16z" fill="#6b3f57"/>
-                </g>
-                <g class="animate-wiggle2" style="transform-origin: 154px 90px">
-                  <circle cx="160" cy="72" r="9" fill="#ffb3cf"/>
-                  <path d="M160 68 q22 4 20 24 q-2 18 -20 16 q14 -12 8 -24 q-4 -10 -8 -16z" fill="#6b3f57"/>
-                </g>
-                <!-- eyes -->
-                <g style="transform-origin:110px 88px" class="animate-blink">
-                  <ellipse cx="94" cy="88" rx="8" ry="10" fill="#3d2431"/>
-                  <ellipse cx="126" cy="88" rx="8" ry="10" fill="#3d2431"/>
-                  <circle cx="96.5" cy="85" r="3" fill="#fff"/>
-                  <circle cx="128.5" cy="85" r="3" fill="#fff"/>
-                </g>
-                <!-- blush -->
-                <ellipse cx="82" cy="102" rx="9" ry="5.5" fill="#ff9dc4" opacity=".85"/>
-                <ellipse cx="138" cy="102" rx="9" ry="5.5" fill="#ff9dc4" opacity=".85"/>
-                <!-- mouth -->
-                <path d="M102 104 q8 9 16 0" stroke="#d14b7d" stroke-width="3" fill="none" stroke-linecap="round"/>
-              </g>
-            </svg>
+          <div class="relative mx-auto w-[240px] h-[290px]">
+            <div id="letterGirl" class="w-full h-full animate-bobbing"></div>
+          </div>
+          <div class="bubble mt-3 min-h-[86px]">
+            <p id="bubbleText" class="font-cute text-[15px] text-cocoa leading-relaxed">Hai, aku Poco. Ehm... aku kalau nervous gitu.</p>
           </div>
 
-          <div class="relative mt-3 bg-white rounded-2xl rounded-tl-md border-2 border-bubblegum-200 px-4 py-3 shadow-card min-h-[86px]">
-            <p id="bubbleText" class="font-cute text-[15px] text-cocoa leading-relaxed">Halo, kamu~ akhirnya boleh dibuka?! Hurry, soalnya di dalam ada rahasia... <i class="fa-solid fa-heart ml-1 text-bubblegum-400"></i></p>
-          </div>
-
-          <!-- love meter -->
           <div class="mt-4">
             <div class="flex items-center justify-between text-xs font-bold text-bubblegum-700 mb-1">
               <span><i class="fa-solid fa-heart mr-1"></i>Love Meter</span><span id="lovePct">0%</span>
@@ -441,7 +362,9 @@ tailwind.config = {
             <div class="h-3.5 rounded-full bg-white border-2 border-bubblegum-200 overflow-hidden">
               <div id="loveBar" class="h-full w-0 bg-gradient-to-r from-bubblegum-300 via-bubblegum-500 to-amber-300 transition-all duration-500"></div>
             </div>
-            <button id="btnLove" class="mt-3 w-full candy-btn py-3 rounded-full bg-gradient-to-r from-bubblegum-400 to-bubblegum-600 text-white font-display font-bold shadow-glow"><i class="fa-solid fa-heart mr-2"></i>Tekan Hatiiku</button>
+            <button id="btnLove" class="mt-3 w-full candy-btn py-3 rounded-full bg-gradient-to-r from-bubblegum-400 to-bubblegum-600 text-white font-display font-bold shadow-glow">
+              <i class="fa-solid fa-heart mr-2"></i>Tekan Hatiiku
+            </button>
           </div>
         </div>
 
@@ -451,7 +374,6 @@ tailwind.config = {
           <button id="btnRain" class="candy-btn bg-white/85 border-2 border-bubblegum-200 rounded-2xl py-3 font-bold text-bubblegum-700 text-sm"><i class="fa-solid fa-cloud-rain mr-1"></i>Hujan</button>
         </div>
 
-        <!-- REPLY -->
         <div class="glass rounded-[1.5rem] border-2 border-white/70 p-4 shadow-card">
           <p class="font-display font-bold text-bubblegum-700 text-sm mb-2"><i class="fa-solid fa-envelope mr-2"></i>Balas pesan ini dong</p>
           <textarea id="replyBox" rows="3" placeholder="ketik apa aja di sini, aku baca semua..."
@@ -460,32 +382,23 @@ tailwind.config = {
         </div>
       </div>
     </div>
-
-    <p class="no-print mt-8 text-center text-xs text-cocoa/50">dibuat dengan tangan, maaf, dan hati yang berdebar-debar <i class="fa-solid fa-wand-sparkles ml-1"></i></p>
+    <p class="no-print mt-8 text-center text-xs text-cocoa/50">dibuat dengan tangan, maaf, dan hati yang berdebar-debar</p>
   </div>
 </div>
 
-<!-- ===== FINALE OVERLAY ===== -->
+<!-- ============ FINALE ============ -->
 <div id="finale" class="fixed inset-0 z-[60] items-center justify-center p-6 overflow-hidden" style="display:none;
      background:radial-gradient(circle at 50% 40%, #ffd9e8, #ffb3cf 45%, #ff8fb5 100%)">
   <div id="finaleHearts" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
-  <div class="relative text-center max-w-2xl">
-    <svg class="w-28 h-28 mx-auto animate-heartbeat drop-shadow-xl" viewBox="0 0 24 24">
-      <path d="M12 21s-7.5-4.6-9.5-9A5.5 5.5 0 0 1 12 5.8 5.5 5.5 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z" fill="#fff"/>
-    </svg>
-    <h2 class="font-display font-extrabold text-5xl md:text-7xl text-white mt-4 drop-shadow-lg animate-pop">
-      TERIMA KASIH<br/>SUDAH DIBACA <i class="fa-solid fa-heart ml-2"></i>
-    </h2>
+  <div class="relative text-center max-w-2xl w-full">
+    <div class="mx-auto w-[190px] h-[230px] mb-2">
+      <div id="finaleGirl" class="w-full h-full animate-bobbing"></div>
+    </div>
+    <h2 class="font-display font-extrabold text-4xl md:text-6xl text-white mt-2 drop-shadow-lg animate-pop">TERIMA KASIH SUDAH DIBACA</h2>
     <p id="finaleMsg" class="mt-4 text-white/95 font-cute text-lg md:text-2xl max-w-xl mx-auto leading-relaxed"></p>
-    <div class="mt-8 flex flex-wrap gap-3 justify-center">
+    <div class="mt-7 flex flex-wrap gap-3 justify-center">
       <button id="btnAgain" class="candy-btn px-7 py-3.5 rounded-full bg-white text-bubblegum-700 font-display font-bold text-lg shadow-xl"><i class="fa-solid fa-rotate mr-2"></i>Ulangi Lagi</button>
       <button id="btnPrint" class="candy-btn px-7 py-3.5 rounded-full bg-cocoa/90 text-white font-display font-bold text-lg shadow-xl"><i class="fa-solid fa-print mr-2"></i>Cetak Surat</button>
-    </div>
-    <div class="mt-8 flex justify-center gap-3">
-      <svg class="w-16 h-16 animate-floaty2"><use href="#m-bear"/></svg>
-      <svg class="w-16 h-16 animate-floaty"><use href="#m-cat"/></svg>
-      <svg class="w-16 h-16 animate-floaty2" style="animation-delay:.4s"><use href="#m-bunny"/></svg>
-      <svg class="w-16 h-16 animate-floaty" style="animation-delay:.2s"><use href="#m-ghost"/></svg>
     </div>
   </div>
 </div>
@@ -496,28 +409,129 @@ tailwind.config = {
   const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
   const fa = (name, cls='') => '<i class="fa-solid fa-'+name+' '+cls+'"></i>';
 
-  /* ---------- BACKGROUND FLOATERS ---------- */
+  /* ============================================================
+     KARAKTER: CEWEK KARTUN (SVG) - bisa ganti ekspresi
+     ============================================================ */
+  const GIRL = `
+<svg viewBox="0 0 260 320" class="girl e-happy w-full h-full">
+  <ellipse cx="130" cy="304" rx="52" ry="9" fill="rgba(91,53,71,.14)"/>
+
+  <!-- rambut belakang + odango -->
+  <g class="g-hairback">
+    <path d="M130 46c-56 0-78 46-76 96 1 30 7 52 16 68 0-46 4-76 14-92h92c10 16 14 46 14 92 9-16 15-38 16-68 2-50-20-96-76-96z" fill="#6b3f57"/>
+    <g class="g-bun"><circle cx="52" cy="62" r="24" fill="#6b3f57"/><circle cx="52" cy="62" r="10" fill="#ff9dc4"/><path d="M52 52l-8 10 8 6 8-6z" fill="#ff5f96"/></g>
+    <g class="g-bun2"><circle cx="208" cy="62" r="24" fill="#6b3f57"/><circle cx="208" cy="62" r="10" fill="#ff9dc4"/><path d="M208 52l-8 10 8 6 8-6z" fill="#ff5f96"/></g>
+  </g>
+
+  <!-- kaki + sepatu -->
+  <rect x="106" y="238" width="18" height="44" rx="9" fill="#ffe3d0"/>
+  <rect x="136" y="238" width="18" height="44" rx="9" fill="#ffe3d0"/>
+  <rect x="104" y="266" width="22" height="15" rx="7" fill="#fff"/>
+  <rect x="134" y="266" width="22" height="15" rx="7" fill="#fff"/>
+  <ellipse cx="112" cy="285" rx="16" ry="10" fill="#ff83ad"/>
+  <ellipse cx="148" cy="285" rx="16" ry="10" fill="#ff83ad"/>
+  <path d="M100 285h24M136 285h24" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- badan -->
+  <path d="M130 150c-34 0-46 20-54 54l-8 34c34 14 90 14 124 0l-8-34c-8-34-20-54-54-54z" fill="#ff8fb5"/>
+  <path d="M104 152q26 18 52 0-4-10-26-10t-26 10z" fill="#fff0f6"/>
+  <path d="M130 190c-14 0-24 6-30 14 16 8 44 8 60 0-6-8-16-14-30-14z" fill="#ff5f96" opacity=".35"/>
+  <circle cx="130" cy="206" r="9" fill="#fff0f6"/><circle cx="130" cy="206" r="4.5" fill="#ff5f96"/>
+
+  <!-- lengan kanan (pegang surat) -->
+  <g class="g-wave2">
+    <path d="M170 168q28 8 32 32 2 14-10 16-12 2-16-12z" fill="#ff8fb5"/>
+    <circle cx="192" cy="212" r="13" fill="#ffe3d0"/>
+    <g class="g-float"><rect x="178" y="196" width="34" height="24" rx="4" fill="#fff" stroke="#ff9dc4" stroke-width="2"/>
+      <path d="M178 198l17 13 17-13" fill="none" stroke="#ff9dc4" stroke-width="2"/></g>
+  </g>
+  <!-- lengan kiri (melambai) -->
+  <g class="g-wave">
+    <path d="M90 168q-28 8-32 32-2 14 10 16 12 2 16-12z" fill="#ff8fb5"/>
+    <circle cx="68" cy="212" r="13" fill="#ffe3d0"/>
+  </g>
+
+  <!-- kepala -->
+  <circle cx="130" cy="104" r="52" fill="#ffe3d0"/>
+  <path d="M78 102c0-40 24-60 52-60s52 20 52 60c-7-24-16-32-27-36-9 13-29 17-45 13-15-4-23-10-32 23z" fill="#6b3f57"/>
+  <path d="M92 66q26-14 52 2-24-4-52-2z" fill="#8a5670" opacity=".7"/>
+
+  <!-- ekspresi: HAPPY -->
+  <g class="expr x-happy">
+    <g class="eyes">
+      <ellipse cx="109" cy="108" rx="10" ry="12.5" fill="#3b2430"/>
+      <ellipse cx="151" cy="108" rx="10" ry="12.5" fill="#3b2430"/>
+      <circle cx="112.5" cy="103.5" r="4" fill="#fff"/>
+      <circle cx="154.5" cy="103.5" r="4" fill="#fff"/>
+      <circle cx="106" cy="113" r="2" fill="#fff" opacity=".85"/>
+      <circle cx="148" cy="113" r="2" fill="#fff" opacity=".85"/>
+    </g>
+    <path d="M121 127q9 8 18 0" stroke="#d14b7d" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- ekspresi: JOY -->
+  <g class="expr x-joy">
+    <path d="M98 112q11-14 22 0" stroke="#3b2430" stroke-width="4.6" fill="none" stroke-linecap="round"/>
+    <path d="M140 112q11-14 22 0" stroke="#3b2430" stroke-width="4.6" fill="none" stroke-linecap="round"/>
+    <path d="M120 126q10 18 20 0-10 7-20 0z" fill="#d14b7d"/>
+    <path d="M124 130q6 6 12 0" fill="#fff" opacity=".9"/>
+  </g>
+  <!-- ekspresi: SHY -->
+  <g class="expr x-shy">
+    <g class="eyes">
+      <ellipse cx="109" cy="110" rx="9" ry="11" fill="#3b2430"/>
+      <ellipse cx="151" cy="110" rx="9" ry="11" fill="#3b2430"/>
+      <circle cx="112" cy="106" r="3.4" fill="#fff"/><circle cx="154" cy="106" r="3.4" fill="#fff"/>
+    </g>
+    <path d="M122 130q8 5 16 0" stroke="#d14b7d" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- ekspresi: O (kaget) -->
+  <g class="expr x-o">
+    <g class="eyes">
+      <ellipse cx="109" cy="104" rx="11" ry="13" fill="#3b2430"/>
+      <ellipse cx="151" cy="104" rx="11" ry="13" fill="#3b2430"/>
+      <circle cx="113" cy="99" r="4" fill="#fff"/><circle cx="155" cy="99" r="4" fill="#fff"/>
+    </g>
+    <ellipse cx="130" cy="130" rx="7" ry="9" fill="#d14b7d"/>
+  </g>
+
+  <!-- blush + kilau -->
+  <ellipse cx="94" cy="126" rx="10" ry="6" fill="#ff9dc4" opacity=".9"/>
+  <ellipse cx="166" cy="126" rx="10" ry="6" fill="#ff9dc4" opacity=".9"/>
+  <g class="g-float"><path d="M130 176c-9-8-13-13-11-18 2-4 7-4 11 1 4-5 9-5 11-1 2 5-2 10-11 18z" fill="#ff5f96"/></g>
+</svg>`;
+
+  function mountGirl(el, expr){
+    if(!el) return;
+    el.innerHTML = GIRL;
+    setExpr(el, expr || 'happy');
+  }
+  function setExpr(el, expr){
+    if(!el) return;
+    const svg = el.querySelector('svg');
+    if(!svg) return;
+    svg.classList.remove('e-happy','e-joy','e-shy','e-o');
+    svg.classList.add('e-'+expr);
+  }
+  function setExprAll(expr){ $$('.girl').forEach(g=>setExpr(g.parentElement, expr)); }
+
+  /* ============================================================
+     BACKGROUND
+     ============================================================ */
   const bgLayer = $('#bgLayer');
-  const bgIcons = ['fa-heart','fa-spa','fa-wand-sparkles','fa-ribbon','fa-star','fa-heart','fa-candy-cane','fa-cloud','fa-star','fa-gift'];
-  const bgColors = ['#ff83ad','#ffc2dc','#ffd9e8','#ff9dc4','#ffe6a8','#7ec9b3','#c58cff','#ffb3cf'];
-  for (let i=0;i<26;i++){
+  const bgIcons = ['fa-heart','fa-spa','fa-ribbon','fa-star','fa-heart','fa-candy-cane','fa-cloud','fa-star','fa-gift','fa-feather'];
+  const bgColors = ['#ffb3cf','#ffd9e8','#ff9dc4','#ffe6a8','#7ec9b3','#c58cff'];
+  for (let i=0;i<20;i++){
     const el = document.createElement('i');
     el.className = 'fa-solid ' + bgIcons[Math.floor(Math.random()*bgIcons.length)] + ' absolute select-none';
     el.style.color = bgColors[Math.floor(Math.random()*bgColors.length)];
-    const size = 14 + Math.random()*26;
-    el.style.fontSize = size+'px';
-    el.style.left = Math.random()*100+'%';
-    el.style.top = Math.random()*100+'%';
-    el.style.opacity = (0.25+Math.random()*0.45).toFixed(2);
-    el.style.animationDuration = (8+Math.random()*12)+'s';
-    el.style.animationDelay = (-Math.random()*12)+'s';
-    el.style.animationName = 'floaty';
-    el.style.animationIterationCount = 'infinite';
-    el.style.animationDirection = Math.random()>.5 ? 'alternate':'normal';
+    el.style.fontSize = (13+Math.random()*22)+'px';
+    el.style.left = (Math.random()*100)+'%';
+    el.style.top = (Math.random()*100)+'%';
+    el.style.opacity = (.22+Math.random()*.35).toFixed(2);
+    el.style.animation = 'floaty ' + (9+Math.random()*10) + 's ease-in-out ' + (-Math.random()*12) + 's infinite alternate';
     bgLayer.appendChild(el);
   }
-  // sparkles
-  for (let i=0;i<18;i++){
+  for (let i=0;i<16;i++){
     const s = document.createElement('div');
     s.className = 'absolute rounded-full spark';
     const sz = 3+Math.random()*6;
@@ -529,414 +543,577 @@ tailwind.config = {
     bgLayer.appendChild(s);
   }
 
-  /* ---------- CURSOR HEART TRAIL ---------- */
-  let lastTrail = 0;
-  document.addEventListener('pointermove', e=>{
-    const now = Date.now();
-    if (now - lastTrail < 55) return;
-    lastTrail = now;
-    const h = document.createElement('i');
-    h.className = 'cursor-heart fa-solid ' + ['fa-heart','fa-heart','fa-wand-sparkles','fa-heart'][Math.floor(Math.random()*4)];
-    h.style.color = ['#ff5f96','#ff83ad','#ffc2dc','#ffb3cf'][Math.floor(Math.random()*4)];
-    h.style.left = (e.clientX-8)+'px';
-    h.style.top = (e.clientY-8)+'px';
-    h.style.fontSize = (10+Math.random()*12)+'px';
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(), 1700);
-  });
-
-  /* ---------- SOUND (WebAudio, no files) ---------- */
+  /* ============================================================
+     AUDIO (Web Audio, tanpa file)
+     ============================================================ */
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
-  let actx = null, master = null, musicOn = false, musicTimer = null, noteIdx = 0;
-  const MELODY = [
-    [659.25,.28],[783.99,.28],[1046.5,.5],[783.99,.28],[659.25,.28],[587.33,.6],
-    [659.25,.28],[783.99,.28],[1046.5,.5],[880,.28],[783.99,.28],[659.25,.7],
-    [698.46,.28],[659.25,.28],[587.33,.9]
-  ];
+  let actx=null, master=null, musicOn=false, musicTimer=null, noteIdx=0;
+  const MELODY = [[659.25,.28],[783.99,.28],[1046.5,.5],[783.99,.28],[659.25,.28],[587.33,.6],
+                  [659.25,.28],[783.99,.28],[1046.5,.5],[880,.28],[783.99,.28],[659.25,.7],
+                  [698.46,.28],[659.25,.28],[587.33,.9]];
   function ensureCtx(){
-    if(!actx){ actx = new AudioCtx(); master = actx.createGain(); master.gain.value = .28; master.connect(actx.destination); }
-    if(actx.state === 'suspended') actx.resume();
+    if(!actx){ actx = new AudioCtx(); master = actx.createGain(); master.gain.value=.28; master.connect(actx.destination); }
+    if(actx.state==='suspended') actx.resume();
     return actx;
   }
-  function tone(freq, dur, type='triangle', vol=1){
-    const ctx = ensureCtx();
-    const o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(0, ctx.currentTime);
-    g.gain.linearRampToValueAtTime(vol, ctx.currentTime + .03);
-    g.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime + dur);
-    o.connect(g); g.connect(master); o.start(); o.stop(ctx.currentTime + dur + .05);
+  function tone(f,d,type='triangle',vol=1){
+    const ctx=ensureCtx(); const o=ctx.createOscillator(), g=ctx.createGain();
+    o.type=type; o.frequency.value=f;
+    g.gain.setValueAtTime(0,ctx.currentTime);
+    g.gain.linearRampToValueAtTime(vol,ctx.currentTime+.03);
+    g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+d);
+    o.connect(g); g.connect(master); o.start(); o.stop(ctx.currentTime+d+.05);
   }
-  function blip(freq=880){ tone(freq,.12,'square',.5); }
+  function blip(f=880){ tone(f,.12,'square',.45); }
+  function sfxWin(){ [523,659,784,1046].forEach((f,i)=>setTimeout(()=>blip(f),i*110)); }
+  function sfxLose(){ [440,392,330,262].forEach((f,i)=>setTimeout(()=>blip(f),i*130)); }
   function playMusic(){
-    if (musicTimer) return;
+    if(musicTimer) return;
     musicTimer = setInterval(()=>{
       const n = MELODY[noteIdx % MELODY.length];
       tone(n[0], n[1]*.95, 'triangle', .8);
-      if (noteIdx % 2 === 0) tone(n[0]/2, n[1]*.9, 'sine', .35);
+      if(noteIdx%2===0) tone(n[0]/2, n[1]*.9, 'sine', .3);
       noteIdx++;
     }, 620);
   }
-  function stopMusic(){ clearInterval(musicTimer); musicTimer = null; }
-  const btnMusic = $('#btnMusic');
-  btnMusic.addEventListener('click', ()=>{
-    ensureCtx();
-    musicOn = !musicOn;
-    $('#musicIcon').className = 'fa-solid ' + (musicOn ? 'fa-volume-high' : 'fa-volume-xmark') + ' text-white text-lg';
+  function stopMusic(){ clearInterval(musicTimer); musicTimer=null; }
+  $('#btnMusic').addEventListener('click', ()=>{
+    ensureCtx(); musicOn=!musicOn;
+    $('#musicIcon').className = 'fa-solid ' + (musicOn?'fa-volume-high':'fa-volume-xmark') + ' text-white text-lg';
     if(musicOn) playMusic(); else stopMusic();
   });
 
-  /* ---------- STAGE MANAGER ---------- */
-  function openStage(id){
-    const el = document.getElementById(id);
-    el.classList.remove('hidden','out');
+  /* ============================================================
+     PARTIKEL
+     ============================================================ */
+  function confetti(n=60){
+    const cols=['#ff5f96','#ff8fb5','#ffb3cf','#ffd9e8','#ffe6a8','#7ec9b3','#9bb6ff','#c58cff'];
+    for(let i=0;i<n;i++){
+      const c=document.createElement('div');
+      c.style.cssText='position:fixed;left:'+(10+Math.random()*80)+'vw;top:'+(8+Math.random()*50)+'vh;width:'+(6+Math.random()*8)+'px;height:'+(8+Math.random()*12)+'px;border-radius:'+(Math.random()>.5?'50%':'3px')+';background:'+cols[Math.floor(Math.random()*cols.length)]+';z-index:80;pointer-events:none;';
+      c.style.setProperty('--dx',(Math.random()*300-150)+'px');
+      c.style.setProperty('--dy',(Math.random()*460-140)+'px');
+      c.style.setProperty('--rot',(Math.random()*900-450)+'deg');
+      c.style.animation='confetti '+(1.4+Math.random()*1.4)+'s cubic-bezier(.2,.7,.4,1) forwards';
+      document.body.appendChild(c); setTimeout(()=>c.remove(),3200);
+    }
+  }
+  function heartBurst(n=22, icon='fa-heart'){
+    for(let i=0;i<n;i++){
+      const h=document.createElement('i');
+      h.className='fa-solid '+icon;
+      h.style.cssText='position:fixed;left:'+(15+Math.random()*70)+'vw;top:'+(25+Math.random()*45)+'vh;font-size:'+(18+Math.random()*26)+'px;color:'+['#ff5f96','#ff83ad','#ffb3cf','#ffd9e8'][Math.floor(Math.random()*4)]+';z-index:80;pointer-events:none;';
+      h.style.setProperty('--dx',(Math.random()*320-160)+'px');
+      h.style.setProperty('--dy',(-140-Math.random()*300)+'px');
+      h.style.setProperty('--rot',(Math.random()*360-180)+'deg');
+      h.style.animation='confetti '+(1.2+Math.random()*1.2)+'s ease-out forwards';
+      document.body.appendChild(h); setTimeout(()=>h.remove(),2600);
+    }
+  }
+  function sparkleAt(x,y,color){
+    for(let i=0;i<8;i++){
+      const s=document.createElement('i');
+      s.className='fa-solid fa-wand-sparkles';
+      s.style.cssText='position:fixed;left:'+x+'px;top:'+y+'px;color:'+(color||'#ffd9e8')+';font-size:'+(8+Math.random()*12)+'px;z-index:80;pointer-events:none;';
+      s.style.setProperty('--dx',(Math.random()*90-45)+'px');
+      s.style.setProperty('--dy',(Math.random()*90-60)+'px');
+      s.style.setProperty('--rot',(Math.random()*360-180)+'deg');
+      s.style.animation='confetti .8s ease-out forwards';
+      document.body.appendChild(s); setTimeout(()=>s.remove(),900);
+    }
+  }
+
+  /* ============================================================
+     STAGE MANAGER
+     ============================================================ */
+  const stages={hero:'#stageHero',game:'#stageGame',box:'#stageBox',letter:'#stageLetter'};
+  let current='hero';
+  function openStage(sel){
+    const el=$(sel); el.classList.remove('hidden','out');
     requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
   }
-  function closeStage(id){
-    const el = document.getElementById(id);
-    el.classList.add('out');
-    setTimeout(()=>{ el.classList.remove('show','out'); el.classList.add('hidden'); }, 620);
+  function closeStage(sel){
+    const el=$(sel); el.classList.add('out');
+    setTimeout(()=>{ el.classList.remove('show','out'); el.classList.add('hidden'); },560);
   }
-  const stages = { hello:'#stageHello', game:'#stageGame', box:'#stageBox', letter:'#stageLetter' };
-  let current = 'hello';
-  function goto(next){
-    closeStage(stages[current]);
-    current = next;
-    setTimeout(()=>openStage(stages[next]), 380);
+  function goto(name){
+    closeStage(stages[current]); current=name;
+    setTimeout(()=>openStage(stages[name]),340);
   }
 
-  /* ---------- LOADER ---------- */
-  const loadBar = $('#loadBar');
-  let pct = 0;
-  const loadTimer = setInterval(()=>{
-    pct += Math.random()*14;
-    if (pct >= 100){ pct = 100; clearInterval(loadTimer);
+  /* ============================================================
+     LOADER
+     ============================================================ */
+  const loadBar=$('#loadBar'); let pct=0;
+  const loadTimer=setInterval(()=>{
+    pct+=Math.random()*14;
+    if(pct>=100){ pct=100; clearInterval(loadTimer);
       setTimeout(()=>{
-        $('#loader').style.transition = 'opacity .6s ease, transform .6s ease';
-        $('#loader').style.opacity = '0';
-        $('#loader').style.transform = 'scale(1.15)';
-        setTimeout(()=>{ $('#loader').style.display='none'; openStage(stages.hello); btnMusic.classList.remove('hidden'); }, 650);
-      }, 250);
+        const l=$('#loader');
+        l.style.transition='opacity .55s ease, transform .55s ease';
+        l.style.opacity='0'; l.style.transform='scale(1.15)';
+        setTimeout(()=>{ l.style.display='none'; openStage(stages.hero); $('#btnMusic').classList.remove('hidden'); },560);
+      },220);
     }
-    loadBar.style.width = pct + '%';
-  }, 190);
+    loadBar.style.width=pct+'%';
+  },180);
 
-  /* ---------- HELLO ---------- */
+  /* ============================================================
+     HERO
+     ============================================================ */
+  mountGirl($('#heroGirl'),'happy');
+  const heroLines=[
+    'Aku nyiapin sesuatu yang special. Tapi ada 3 tantangan dulu, ya? Tenang, semuanya gampang kok.',
+    'Kalau berhasil, aku kasih tahu kamu satu rahasia besar. Worth it, lho!',
+    'Aku Poco. Ehm... aku kalau nervous gitu.',
+    'Ayo, jangan mikirin yang lain. Fokus ke aku dulu.'
+  ];
+  let heroIdx=0;
+  function rotateHero(){
+    const el=$('#heroLine'); el.style.opacity=0;
+    setTimeout(()=>{ el.textContent=heroLines[heroIdx%heroLines.length]; el.style.opacity=1; heroIdx++; },400);
+  }
+  $('#heroLine').style.transition='opacity .35s ease';
+  setInterval(rotateHero, 6000);
+
   $('#btnStart').addEventListener('click', ()=>{
-    ensureCtx(); blip(660); setTimeout(()=>blip(880),120);
-    goto('game'); startGame();
+    ensureCtx(); blip(660); setTimeout(()=>blip(880),110);
+    goto('game'); startChallenge(0);
   });
 
-  /* ---------- MINI GAME: catch hearts ---------- */
-  const spawn = $('#heartSpawn');
-  const scoreText = $('#scoreText');
-  const gameMsg = $('#gameMsg');
-  let score = 0, running = false, spawnTimer = null, keyGiven = false;
+  /* ============================================================
+     GAME ENGINE
+     ============================================================ */
+  const CH=[
+    { key:'hearts',   title:'Tantangan 1 — Tangkap Hati',   desc:'Arahkan keranjang (klik/geser) buat nangkep 10 hati yang jatuh. Jangan sampai kelewatan!',
+      goal:10, tip:'Geser mouse atau jarinya ke kiri-kanan ya.' },
+    { key:'balloons', title:'Tantangan 2 — Pecah Balon Huruf', desc:'Balon berisi huruf. Pecah sesuai urutan yang diminta untuk membentuk kata TERIMA KASIH.',
+      goal:11, tip:'Pecah balon huruf yang diminta, urutan dari kiri ke kanan.' },
+    { key:'meter',    title:'Tantangan 3 — Stop the Love Meter', desc:'Klik saat penanda berhenti di area hati. Mustahil 3 kali berturut-turut!',
+      goal:3, tip:'Tepat di area pink-nya ya. Jangan pelan-pelan!' }
+  ];
+  let ci=0, gScore=0, gLives=3, gGoal=1, gameTimer=null, rafId=null, skipTimer=null, gameCleanup=null;
+  const area=$('#gameArea'), res=$('#gameResult');
 
-  function spawnHeart(){
-    if(!running) return;
-    const h = document.createElement('i');
-    h.className = 'fa-solid fa-heart absolute select-none cursor-pointer animate-fall';
-    h.style.color = Math.random()>.5 ? '#ff5f96' : '#ff83ad';
-    const sz = 30 + Math.random()*26;
-    h.style.fontSize = sz+'px';
-    h.style.left = (4 + Math.random()*90) + '%';
-    h.style.top = '-50px';
-    h.style.animationDuration = (3.4 + Math.random()*2.4) + 's';
-    h.style.animationDelay = (Math.random()*.6)+'s';
-    h.style.filter = 'drop-shadow(0 6px 8px rgba(244,63,125,.45))';
-    h.addEventListener('pointerdown', (e)=>{
-      e.stopPropagation();
-      if(h.dataset.dead) return;
-      h.dataset.dead = '1';
-      h.style.transition = 'transform .35s ease, opacity .35s ease';
-      h.style.transform = 'scale(2.2) rotate(25deg)';
-      h.style.opacity = '0';
-      setTimeout(()=>h.remove(), 340);
-      score++; scoreText.textContent = score + ' / 5';
-      blip(760 + score*90); ensureCtx();
-      floatText('+1', h.style.left, h.style.top);
-      if(score >= 5) winGame();
+  function setChapter(i){
+    ci=i;
+    const c=CH[i];
+    $('#chapterLabel').textContent = 'Tantangan '+(i+1)+' dari 3';
+    $('#chapterDots').innerHTML = CH.map((_,k)=>'<span class="w-2 h-2 rounded-full '+(k<=i?'bg-bubblegum-500':'bg-bubblegum-200')+'"></span>').join('');
+    $('#gameTitle').textContent = c.title;
+    $('#gameDesc').textContent = c.desc;
+    $('#gameTip').textContent = c.tip;
+    gGoal = c.goal;
+    $('#hudGoal').textContent = 'Target: '+c.goal;
+    $('#chapterBar').classList.remove('hidden');
+  }
+  function setScore(v){ gScore=v; $('#hudScore').textContent=v; }
+  function setLives(v){ gLives=v; $('#hudLives').innerHTML = Array.from({length:3},(_,i)=>'<i class="fa-solid fa-heart '+(i<v?'text-bubblegum-500':'text-bubblegum-200')+'"></i>').join(''); }
+
+  function stopGame(){
+    if(rafId) cancelAnimationFrame(rafId); rafId=null;
+    if(gameTimer) clearInterval(gameTimer); gameTimer=null;
+    if(skipTimer) clearTimeout(skipTimer); skipTimer=null;
+    if(gameCleanup){ gameCleanup(); gameCleanup=null; }
+  }
+  function startChallenge(i){
+    stopGame();
+    setChapter(i);
+    setScore(0); setLives(3);
+    res.classList.add('hidden'); res.style.display='none'; res.innerHTML='';
+    area.innerHTML='';
+    gameCleanup = GAMES[CH[i].key].start() || null;
+    $('#btnSkip').classList.add('hidden');
+    skipTimer=setTimeout(()=>$('#btnSkip').classList.remove('hidden'), 25000);
+  }
+  function gameWin(msg){
+    stopGame(); sfxWin(); confetti(90);
+    res.innerHTML = '<div class="text-center animate-pop">'
+      + '<div class="text-5xl text-bubblegum-500 mb-2">'+fa('trophy')+'</div>'
+      + '<p class="font-display text-2xl font-extrabold text-bubblegum-600">'+ (msg||'Tantangan selesai!') +'</p>'
+      + '<p class="text-sm text-cocoa/70 mt-1">'+(ci<2?'Siap ke tantangan berikutnya?':'Kotak rantaimu sudah siap dibuka!')+'</p>'
+      + '<button id="btnNext" class="mt-4 candy-btn px-6 py-3 rounded-full bg-gradient-to-r from-bubblegum-500 to-bubblegum-600 text-white font-display font-bold shadow-glow">'
+      + (ci<2?'Lanjut <i class="fa-solid fa-arrow-right ml-1"></i>':'Buka Kotak <i class="fa-solid fa-gift ml-1"></i>')+'</button></div>';
+    res.classList.remove('hidden'); res.style.display='flex';
+    $('#btnNext').addEventListener('click', ()=>{
+      if(ci<2){ goto('game'); startChallenge(ci+1); }
+      else { goto('box'); }
     });
-    spawn.appendChild(h);
-    setTimeout(()=>h.remove(), 6500);
+    setExprAll('joy');
+    bubble('Keren banget kamu! Lanjut ya!');
   }
-  function floatText(txt, left, top){
-    const d = document.createElement('div');
-    d.textContent = txt;
-    d.className = 'absolute font-display font-extrabold text-bubblegum-600 text-lg pointer-events-none';
-    d.style.left = left; d.style.top = top;
-    d.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
-    d.style.transform = 'translateY(0)';
-    spawn.appendChild(d);
-    requestAnimationFrame(()=>{ d.style.transform='translateY(-60px) scale(1.4)'; d.style.opacity='0'; });
-    setTimeout(()=>d.remove(), 1050);
+  function gameLose(msg){
+    stopGame(); sfxLose();
+    res.innerHTML = '<div class="text-center animate-pop">'
+      + '<div class="text-5xl text-bubblegum-400 mb-2">'+fa('face-sad-tear')+'</div>'
+      + '<p class="font-display text-2xl font-extrabold text-bubblegum-600">'+(msg||'Belum berhasil nih')+'</p>'
+      + '<p class="text-sm text-cocoa/70 mt-1">Tenang, aku bantuin. Coba lagi ya!</p>'
+      + '<button id="btnRetry" class="mt-4 candy-btn px-6 py-3 rounded-full bg-cocoa text-white font-display font-bold">Coba Lagi</button></div>';
+    res.classList.remove('hidden'); res.style.display='flex';
+    $('#btnRetry').addEventListener('click', ()=>startChallenge(ci));
+    setExprAll('shy');
+    bubble('Hampir! Ayo coba lagi, aku WATCH kamu!');
   }
-  function winGame(){
-    running = false;
-    clearInterval(spawnTimer);
-    spawn.innerHTML = '';
-    gameMsg.innerHTML = '<div class="text-center animate-pop"><div class="text-6xl text-bubblegum-500">' + fa('key') + '</div><p class="font-display text-2xl font-extrabold text-bubblegum-600 mt-2">KUNCINYA KAMU MILIK!</p><p class="text-sm text-cocoa/70">nyusul ke kotak surat yaa ' + fa('envelope') + '</p></div>';
-    blip(1046); setTimeout(()=>blip(1318),150); setTimeout(()=>blip(1568),300);
-    confetti(60);
-    setTimeout(()=>{ goto('box'); $('#keyTag').classList.remove('hidden'); }, 1800);
-  }
-  function startGame(){
-    score = 0; running = true; keyGiven = false;
-    scoreText.textContent = '0 / 5';
-    spawn.innerHTML = ''; gameMsg.innerHTML = '';
-    spawnTimer = setInterval(spawnHeart, 620);
-    setTimeout(()=>spawnHeart(), 200);
-    setTimeout(()=>{ if(!keyGiven){ const b=$('#btnGiveKey'); b.classList.remove('hidden'); } }, 22000);
-  }
-  $('#btnGiveKey').addEventListener('click', ()=>{
-    if(keyGiven) return; keyGiven = true;
-    score = 5; scoreText.textContent = '5 / 5';
-    winGame();
-  });
+  $('#btnSkip').addEventListener('click', ()=>{ stopGame(); gameWin('Dilewati! Santai saja.'); });
 
-  /* ---------- BOX ---------- */
-  const boxSvg = $('#boxSvg'), boxLid = $('#boxLid');
-  let boxOpened = false;
+  /* ---------- GAME 1: TANGKAP HATI ---------- */
+  const GAMES={
+    hearts:{
+      start(){
+        area.innerHTML = '<div id="hlayer" class="absolute inset-0"></div>'
+          + '<div id="basket" class="absolute bottom-4 text-4xl text-bubblegum-500 transition-transform" style="left:50%;transform:translateX(-50%)">'+fa('shopping-basket')+'</div>'
+          + '<div class="absolute bottom-1 left-1/2 -translate-x-1/2 text-[10px] font-bold text-cocoa/50">keranjangmu</div>';
+        const layer=$('#hlayer'), basket=$('#basket');
+        const hearts=[]; let W=0,H=0,bx=0,tx=0,timeLeft=45,spawnAcc=0;
+        function size(){ W=area.clientWidth; H=area.clientHeight; bx=W/2; tx=bx; }
+        size();
+        const onMove=(e)=>{ const r=area.getBoundingClientRect(); tx=e.clientX-r.left; };
+        area.addEventListener('pointermove',onMove);
+        area.addEventListener('pointerdown',onMove);
+        let last=performance.now();
+        function spawn(){
+          const h=document.createElement('i');
+          h.className='heart-pick fa-solid fa-heart';
+          h.style.fontSize=(26+Math.random()*16)+'px';
+          const o={el:h,x:20+Math.random()*(W-40),y:-30,vy:70+Math.random()*45,sway:Math.random()*Math.PI*2,alive:true};
+          h.style.left=o.x+'px'; h.style.top=o.y+'px';
+          h.addEventListener('pointerdown',(ev)=>{ ev.stopPropagation(); catchHeart(o); });
+          layer.appendChild(h); hearts.push(o);
+        }
+        function catchHeart(o){
+          if(!o.alive) return; o.alive=false;
+          const r=o.el.getBoundingClientRect();
+          sparkleAt(r.left+r.width/2, r.top+r.height/2);
+          o.el.style.transition='transform .3s ease, opacity .3s ease';
+          o.el.style.transform='scale(2.4) rotate(30deg)'; o.el.style.opacity='0';
+          setTimeout(()=>o.el.remove(),300);
+          setScore(gScore+1); blip(700+gScore*70);
+          const cheers=['Nice!','Nah!','Lagi!','Kamu jago!','Sadis juga, yeah?','Cih!','Mantap!','Lanjut!','Almost there!','Ini punyaku!'];
+          bubble(cheers[gScore % cheers.length]);
+          setExprAll('joy');
+          if(gScore>=gGoal){ gameWin('10 hati berhasil!');
+            area.removeEventListener('pointermove',onMove); }
+        }
+        function loop(now){
+          const dt=(now-last)/1000; last=now;
+          bx += (tx-bx)*Math.min(1, dt*14);
+          basket.style.left=bx+'px'; basket.style.transform='translateX(-50%) rotate('+Math.sin(now/180)*6+'deg)';
+          spawnAcc+=dt;
+          if(spawnAcc>0.62){ spawnAcc=0; if(hearts.filter(h=>h.alive).length<11) spawn(); }
+          for(const o of hearts){
+            if(!o.alive) continue;
+            o.sway+=dt*2.4; o.y+=o.vy*dt; o.x+=Math.sin(o.sway)*22*dt;
+            o.el.style.top=o.y+'px'; o.el.style.left=o.x+'px';
+            if(o.y>H-70 && o.x>bx-52 && o.x<bx+52){ catchHeart(o); }
+            else if(o.y>H+40){ o.alive=false; o.el.remove(); setExprAll('shy'); }
+          }
+          timeLeft-=dt;
+          if(timeLeft<=0 && res.style.display!=='flex'){
+            area.removeEventListener('pointermove',onMove);
+            gameWin('Waktu habis, tapi kamu tetap dab!');
+          }
+          if(gScore<gGoal && timeLeft>0) rafId=requestAnimationFrame(loop);
+        }
+        rafId=requestAnimationFrame(loop);
+        $('#hudGoal').textContent='Target: '+gGoal+' hati';
+        return ()=>{ area.removeEventListener('pointermove',onMove); area.removeEventListener('pointerdown',onMove); };
+      }
+    },
+
+    /* ---------- GAME 2: PECAH BALON HURUF ---------- */
+    balloons:{
+      start(){
+        const word='TERIMAKASIH'.split('');
+        area.innerHTML = '<div id="slots" class="absolute top-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>'
+          + '<div id="target" class="absolute top-14 left-1/2 -translate-x-1/2 font-display font-bold text-sm text-bubblegum-700 bg-white/85 px-3 py-1 rounded-full border border-bubblegum-200"></div>'
+          + '<div id="blayer" class="absolute inset-0"></div>';
+        const slots=$('#slots'), target=$('#target'), layer=$('#blayer');
+        let W=0,H=0,prog=0, lives=3;
+        const balloons=[];
+        function size(){ W=area.clientWidth; H=area.clientHeight; }
+        size();
+        function drawSlots(){
+          slots.innerHTML = word.map((c,i)=>'<div class="slot '+(i<prog?'filled':'')+'">'+ (i<prog?c:'') +'</div>').join('');
+        }
+        function drawTarget(){
+          target.innerHTML = 'sekarang: <b class="text-bubblegum-600">'+word[prog]+'</b>';
+        }
+        function makeBalloon(letter, slotIndex){
+          const b=document.createElement('div');
+          b.className='balloon'; b.textContent=letter;
+          const o={el:b,letter,x:30+Math.random()*(W-90),y:H+60,vy:-(40+Math.random()*35),sway:Math.random()*6,phase:Math.random()*6,slot:slotIndex,alive:true};
+          b.style.left=o.x+'px'; b.style.top=o.y+'px';
+          b.addEventListener('pointerdown',(e)=>{ e.stopPropagation(); pop(o); });
+          layer.appendChild(b); balloons.push(o);
+        }
+        function pop(o){
+          if(!o.alive) return; o.alive=false;
+          o.el.classList.add('pop');
+          if(o.letter===word[prog]){
+            prog++; setScore(prog); blip(600+prog*60); sparkleAt(o.x+30,o.y+20);
+            if(prog>=word.length){ drawSlots(); gameWin('TERIMA KASIH! Berhasil banget!'); return; }
+            drawSlots(); drawTarget();
+          } else {
+            lives--; setLives(lives); sfxLose(); setExprAll('shy');
+            bubble('Itu bukan huruf yang diminta, wkwk!');
+            if(lives<=0){ gameLose('Hurufnya ketuker semua'); return; }
+          }
+          setTimeout(()=>o.el.remove(),360);
+        }
+        // spawn semua huruf (acak) diam-diam
+        let shuffled = word.map((c,i)=>({c,i})).sort(()=>Math.random()-0.5);
+        shuffled.forEach((o,i)=>setTimeout(()=>makeBalloon(o.c,o.i), i*120));
+        drawSlots(); drawTarget();
+        let last=performance.now();
+        function loop(now){
+          const dt=(now-last)/1000; last=now;
+          for(const o of balloons){
+            if(!o.alive) continue;
+            o.phase+=dt*1.6;
+            o.y+=o.vy*dt;
+            o.x=Math.max(10,Math.min(W-80,o.x+Math.sin(o.phase)*30*dt));
+            if(o.y<-90){
+              o.y=H+70;
+              const pool=word.slice(prog);
+              if(pool.length){ o.letter=pool[Math.floor(Math.random()*pool.length)]; o.el.textContent=o.letter; }
+            }
+            o.el.style.left=o.x+'px'; o.el.style.top=o.y+'px';
+            o.el.style.transform='rotate('+Math.sin(o.phase)*7+'deg)';
+          }
+          if(prog<word.length) rafId=requestAnimationFrame(loop);
+        }
+        rafId=requestAnimationFrame(loop);
+        $('#hudGoal').textContent='Kata: TERIMA KASIH';
+        return ()=>{ layer.innerHTML=''; };
+      }
+    },
+
+    /* ---------- GAME 3: STOP THE LOVE METER ---------- */
+    meter:{
+      start(){
+        area.innerHTML = '<div id="meterWrap" class="absolute inset-0 flex items-center justify-center">'
+          + '<div id="meterBar" class="relative w-[78%] h-16 rounded-full bg-white border-4 border-bubblegum-200 overflow-hidden cursor-pointer shadow-inset">'
+          + '<div id="zone" class="meter-zone"></div>'
+          + '<div id="needle" class="meter-needle" style="left:0"></div>'
+          + '<div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="font-display font-bold text-xs text-bubblegum-600/70">klik saat penanda di area pink</span></div>'
+          + '</div></div>';
+        const bar=$('#meterBar'), zone=$('#zone'), needle=$('#needle');
+        let W=0, pos=0, dir=1, speed=.85, hits=0, misses=0, zoneW=.24;
+        function size(){ W=bar.clientWidth; }
+        size();
+        function layout(){
+          zone.style.left=((1-zoneW)/2*100)+'%';
+          zone.style.width=(zoneW*100)+'%';
+        }
+        layout();
+        bar.addEventListener('pointerdown', onStop);
+        window.addEventListener('keydown', onKey);
+        function onKey(e){ if(e.code==='Space'||e.code==='Enter'){ e.preventDefault(); onStop(); } }
+        function onStop(){
+          if(res.style.display==='flex') return;
+          const frac=pos/W;
+          if(Math.abs(frac-.5)<zoneW/2){
+            hits++; setScore(hits); blip(900+hits*90); setExprAll('joy');
+            sparkleAt(window.innerWidth/2, window.innerHeight/2, '#ff83ad');
+            bubble(['Pas!','Keren!','Hampir sempurna!','Mantap!','Sempurna!'][Math.min(4,hits-1)]);
+            zoneW=Math.max(.09, zoneW-.05); layout();
+            if(hits>=3){ gameWin('Love meter berhasil! Kamu Hebat!'); return; }
+          } else {
+            misses++; sfxLose(); setExprAll('shy'); bubble('Meleset! Fokus ya!');
+            if(misses>=5){ gameLose('Meter-nya ngawur terus'); return; }
+          }
+          speed=Math.min(2.2, speed+.12);
+        }
+        let last=performance.now();
+        function loop(now){
+          const dt=(now-last)/1000; last=now;
+          pos += dir*speed*W*dt;
+          if(pos>W-8){ pos=W-8; dir=-1; } if(pos<8){ pos=8; dir=1; }
+          needle.style.left=pos+'px';
+          $('#hudGoal').textContent='Berhasil: '+hits+' / 3  |  Salah: '+misses+' / 5';
+          if(hits<3 && misses<5) rafId=requestAnimationFrame(loop);
+        }
+        rafId=requestAnimationFrame(loop);
+        $('#hudGoal').textContent='Target: 3 berhasil';
+        return ()=>{ window.removeEventListener('keydown', onKey); };
+      }
+    }
+  };
+
+  /* ============================================================
+     KOTAK
+     ============================================================ */
+  const boxSvg=$('#boxSvg'), boxLid=$('#boxLid');
+  let boxOpened=false;
   $('#btnShakeBox').addEventListener('click', ()=>{
     boxSvg.classList.add('animate-shake');
-    setTimeout(()=>boxSvg.classList.remove('animate-shake'), 700);
+    setTimeout(()=>boxSvg.classList.remove('animate-shake'),700);
     blip(400); setTimeout(()=>blip(500),100);
-    $('#boxSub').textContent = 'Kotaknya cuma goyang dikit... kayaknya isinya beneran!';
+    $('#boxSub').textContent='Kotaknya cuma goyang dikit... kayaknya isinya beneran!';
   });
   boxLid.addEventListener('click', ()=>{ if(!boxOpened) openBox(); });
   $('#btnOpenBox').addEventListener('click', openBox);
-
   function openBox(){
-    if(boxOpened) return;
-    boxOpened = true;
-    ensureCtx();
+    if(boxOpened) return; boxOpened=true; ensureCtx();
     ['523','659','784','1046'].forEach((f,i)=>setTimeout(()=>blip(+f), i*110));
-    boxLid.style.transition = 'transform 1s cubic-bezier(.5,-0.3,.4,1.3)';
-    boxLid.style.transform = 'translate(-70px,-190px) rotate(-26deg)';
-    boxLid.style.opacity = '.85';
-    $('#boxGlow').style.opacity = '1';
-    $('#rays').style.opacity = '1';
+    boxLid.style.transition='transform 1s cubic-bezier(.5,-.3,.4,1.3)';
+    boxLid.style.transform='translate(-70px,-190px) rotate(-26deg)';
+    $('#boxGlow').style.opacity='1'; $('#rays').style.opacity='1';
     $('#rays').classList.add('animate-sunspin');
-    confetti(120);
-    // light burst
+    confetti(130);
     for(let i=0;i<26;i++){
-      const s = document.createElement('div');
-      s.className = 'absolute rounded-full pointer-events-none animate-grow';
-      const sz = 6+Math.random()*10;
-      s.style.width=sz+'px'; s.style.height=sz+'px';
-      s.style.left=(40+Math.random()*20)+'%'; s.style.top=(40+Math.random()*20)+'%';
-      s.style.background = i%2 ? '#fff' : '#ffe6f0';
-      $('#boxWrap').appendChild(s);
-      setTimeout(()=>s.remove(), 1600);
+      const s=document.createElement('div');
+      s.className='absolute rounded-full pointer-events-none animate-grow';
+      const sz=6+Math.random()*10;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(40+Math.random()*20)+'%;top:'+(40+Math.random()*20)+'%;background:'+(i%2?'#fff':'#ffe6f0');
+      $('#boxWrap').appendChild(s); setTimeout(()=>s.remove(),1600);
     }
-    $('#boxSub').textContent = 'YUHUU! Buka! Ada apa di dalamnya?!';
+    $('#boxSub').textContent='YUHUU! Buka! Ada apa di dalamnya?!';
     setTimeout(()=>{
       goto('letter');
       $('#rays').classList.remove('animate-sunspin'); $('#rays').style.opacity='0';
       $('#boxGlow').style.opacity='0';
       startTypewriter();
-    }, 2000);
+    },2000);
   }
 
-  /* ---------- CONFETTI / HEARTS BURST ---------- */
-  function confetti(n=60, area=document.body){
-    const colors = ['#ff5f96','#ff8fb5','#ffb3cf','#ffd9e8','#ffe6a8','#7ec9b3','#9bb6ff','#c58cff'];
-    for(let i=0;i<n;i++){
-      const c = document.createElement('div');
-      c.style.position='fixed';
-      c.style.left = (10+Math.random()*80)+'vw';
-      c.style.top = (10+Math.random()*50)+'vh';
-      c.style.width = (6+Math.random()*8)+'px';
-      c.style.height = (8+Math.random()*12)+'px';
-      c.style.borderRadius = Math.random()>.5 ? '50%' : '3px';
-      c.style.background = colors[Math.floor(Math.random()*colors.length)];
-      c.style.zIndex = 80;
-      c.style.pointerEvents='none';
-      c.style.setProperty('--dx', (Math.random()*300-150)+'px');
-      c.style.setProperty('--dy', (Math.random()*420-120)+'px');
-      c.style.setProperty('--rot', (Math.random()*900-450)+'deg');
-      c.style.animation = `confetti ${1.4+Math.random()*1.4}s cubic-bezier(.2,.7,.4,1) forwards`;
-      document.body.appendChild(c);
-      setTimeout(()=>c.remove(), 3200);
-    }
+  /* ============================================================
+     SURAT (typewriter) + ekspresi karakter
+     ============================================================ */
+  const PARTS=[
+    {e:'happy', s:"Hai, Sayangku.\n\nKalau pesan ini sampai ke layar kamu, berarti kotak di hatiku akhirnya berhasil dibuka juga. Aku sengaja bikin halaman ini ribet-ribet, soalnya permintaan maaf itu nggak muat kalau cuma ngetik chat biasa. Maaf ya, aku sering gagal jadi orang yang kamu butuhin."},
+    {e:'shy',  s:"Ini dia yang mau aku minta maaf:\n\n1. Maaf kalau aku baca chat kamu lalu diam. Bukan karena nggak peduli, tapi karena aku males dan insecure. Itu salahku, bukan salahmu.\n2. Maaf kalau cutteran di tengah-tengah lagi, padahal waktu itu kamu lagi cerita hal yang penting banget.\n3. Maaf kalau pernah aku bikin kamu nangis terus aku pura-pura nggak tahu. Itu kejam, aku tau."},
+    {e:'shy',  s:"4. Maaf kalau aku yang harusnya ngerjain, tapi selalu aku yang minta kamu nyambungin.\n5. Maaf kalau aku sering lupa hari penting kamu, dan orang penting di hidup kamu selalu aku yang absen.\n6. Maaf kalau kamu nunggu aku lama banget, dan aku datang dengan alasan yang murah.\n\nMaaf juga buat semua hal yang nggak sempat kuucapin waktu itu, dan buat semua yang akan salah lagi di masa depan. Tapi aku janji, aku lagi belajar."},
+    {e:'happy', s:"Yang aku janjikan:\n\n- Aku bakal lebih cepat bales, walau cuma 'lagi makan ya'.\n- Kalau lagi mood jelek, aku bakal bilang, bukan diem-dieman terus.\n- Aku bakal bikin surprise lagi, karena kamu pantas dapat banyak surprise.\n- Dan aku bakal terus punya kamu, buat yang kedua, yang ketiga, dan seterusnya."},
+    {e:'joy',  s:"Terima kasih udah sabar sama aku. Kamu itu rumah paling tenang buat aku, dan aku pengen jadi alasan kamu senyum tiap hari.\n\nMaaf ya udah bikin capek dan kesal. Aku janji mulai hari ini aku mau jadi lebih baik buat kamu.\n\nMeluk-manyuk, cincau."}
+  ];
+  const letterBody=$('#letterBody');
+  let typeTimer=null, typingDone=false;
+  function finishTyping(){
+    if(typingDone) return;
+    typingDone=true; clearInterval(typeTimer);
+    letterBody.textContent='';
+    PARTS.forEach(part=>{
+      part.s.split('\n').forEach((line,k)=>{
+        if(k) letterBody.appendChild(document.createElement('br'));
+        letterBody.appendChild(document.createTextNode(line));
+      });
+      letterBody.appendChild(document.createElement('br'));
+      letterBody.appendChild(document.createElement('br'));
+    });
+    $('#caret').style.display='none';
+    $('#letterEnd').style.display='flex';
+    $('#polaroids').style.display='grid';
+    setExprAll('joy'); bubble('Sudah selesai baca? I love you so much.');
   }
-  function heartBurst(n=24, icon='fa-heart'){
-    for(let i=0;i<n;i++){
-      const h=document.createElement('i');
-      h.className='fa-solid '+icon;
-      h.style.color=['#ff5f96','#ff83ad','#ffb3cf','#ffd9e8'][Math.floor(Math.random()*4)];
-      h.style.position='fixed';
-      h.style.left=(20+Math.random()*60)+'vw';
-      h.style.top=(30+Math.random()*40)+'vh';
-      h.style.fontSize=(18+Math.random()*26)+'px';
-      h.style.zIndex=80; h.style.pointerEvents='none';
-      h.style.setProperty('--dx',(Math.random()*320-160)+'px');
-      h.style.setProperty('--dy',(-140-Math.random()*280)+'px');
-      h.style.setProperty('--rot',(Math.random()*360-180)+'deg');
-      h.style.animation=`confetti ${1.2+Math.random()*1.2}s ease-out forwards`;
-      document.body.appendChild(h);
-      setTimeout(()=>h.remove(),2600);
-    }
-  }
-
-  /* ---------- TYPEWRITER ---------- */
-  const LETTER = `Hai, Sayangku,
-
-Kalau pesan ini sampai ke layar kamu, berarti kotak di hatiku akhirnya berhasil dibuka juga. Aku sengaja bikin halaman ini ribet-ribet, soalnya permintaan maaf itu nggak muat kalau cuma ngetik chat biasa. Maaf ya... ada banyak yang harus aku tanggung jawab. Sorry, salahku.
-
-Ini dia yang mau aku minta maaf:
-
-1. Maaf kalau aku baca chat kamu lalu diam. Bukan karena nggak peduli — karena aku males dan insecure. Itu salahku, bukan salahmu.
-2. Maaf kalau cutteran di tengah-tengah lagi, padahal waktu itu kamu lagi cerita hal yang penting banget.
-3. Maaf kalau pernah aku bikin kamu nangis terus aku pura-pura nggak tahu. Itu kejam, aku tau.
-4. Maaf kalau aku yang harusnya ngerjain, tapi selalu aku yang minta kamu nyambungin.
-5. Maaf kalau aku sering lupa hari penting kamu, dan orang penting di hidup kamu selalu aku yang absen.
-6. Maaf kalau kamu nunggu aku lama banget, dan aku datang dengan alasan yang murah.
-
-Maaf juga buat semua hal yang nggak sempat kuucapin waktu itu, dan buat semua yang akan salah lagi di masa depan. Tapi aku promise, aku lagi belajar.
-
-Yang aku janjikan:
-- Aku bakal lebih cepat bales, walau cuma "lagi makan ya".
-- Kalau lagi mood jelek, aku bakal bilang — bukan diem-dieman terus.
-- Aku bakal bikin surprise lagi, karena kamu pantas dapat banyak surprise.
-- Dan aku bakal terus punya kamu, buat yang kedua, yang ketiga, dan seterusnya.
-
-Terima kasih udah sabar sama aku. Kamu itu rumah paling tenang buat aku, dan aku pengen jadi alasan kamu senyum tiap hari.
-
-Maaf ya udah bikin capek dan kesal. Aku promise mulai hari ini aku mau jadi lebih baik buat kamu.
-
-Meluk-manyuk, cincau`;
-  const letterBody = $('#letterBody');
-  let typeTimer = null, typeIdx = 0;
   function startTypewriter(){
-    letterBody.textContent = '';
-    typeIdx = 0;
-    clearInterval(typeTimer);
-    const caret = $('#caret');
-    caret.style.display = 'inline-block';
-    typeTimer = setInterval(()=>{
-      if(typeIdx >= LETTER.length){
-        clearInterval(typeTimer);
-        caret.style.display='none';
-        bubble('Sudah selesai baca? I love you so much.');
-        return;
-      }
-      const ch = LETTER[typeIdx++];
-      if(ch === '\n') letterBody.appendChild(document.createElement('br'));
-      else letterBody.appendChild(document.createTextNode(ch));
-      if(typeIdx % 3 === 0) blip(300+Math.random()*500);
-      letterBody.scrollTop = letterBody.scrollHeight;
-    }, 22);
+    letterBody.textContent=''; $('#letterEnd').style.display='none'; $('#polaroids').style.display='none';
+    typingDone=false; let p=0, i=0; clearInterval(typeTimer);
+    const caret=$('#caret'); caret.style.display='inline-block';
+    typeTimer=setInterval(()=>{
+      if(p>=PARTS.length){ finishTyping(); return; }
+      const part=PARTS[p];
+      if(i===0) setExprAll(part.e);
+      const ch=part.s[i];
+      if(ch===undefined){ letterBody.appendChild(document.createElement('br')); letterBody.appendChild(document.createElement('br')); p++; i=0; return; }
+      if(ch==='\n'){ letterBody.appendChild(document.createElement('br')); }
+      else { letterBody.appendChild(document.createTextNode(ch)); }
+      i++;
+      if(i%7===0) blip(300+Math.random()*500);
+    },8);
   }
+  $('#letterBody').style.cursor='pointer';
+  $('#letterBody').addEventListener('click', finishTyping);
 
   /* ---------- BUBBLE ---------- */
-  const BUBBLES = [
-    'Hai, kamu~ akhirnya kebuka? Aku deg-degan deh',
-    'Ada lima hati yang harus kamu tangkap dulu, lho!',
-    'Kuncinya kamu yang bawa sendiri, lucu ya?',
-    'Hati aku udah terbuka, kamu gimana?',
-    'Kalau baca ini, peluk aku ya!',
-    'Aku: satu-satu ya wkwk, biar hatinya nggak naik-turun...',
-    'Nggak nyesel deh nunggu kamu buka ini',
-    'Hmm... mau aku bilang hal manis lagi?'
+  const BUBBLES=[
+    'Hai, kamu~ udah sampai di sini juga? Aku senang.',
+    'Tiap kamu tangkap hati, aku makin senang banget!',
+    'Baca pelan-pelan ya, ini bukan hal yang perlu buru-buru.',
+    'Kalau ada bagian yang bikin sedih, peluk aku dulu.',
+    'Aku siap dengerin semua cerita kamu.',
+    'Nggak nyesel deh nunggu kamu buka ini.',
+    'Hmm, mau aku Bilang hal manis lagi?',
+    'Aku deg-degan juga lho nulis surat ini.'
   ];
-  let bIdx = 0;
+  let bIdx=0;
   function bubble(txt){
-    const el = $('#bubbleText');
-    el.style.opacity = 0;
-    setTimeout(()=>{ el.textContent = txt; el.style.transition='opacity .35s ease'; el.style.opacity = 1; }, 200);
+    const el=$('#bubbleText'); el.style.opacity=0;
+    setTimeout(()=>{ el.textContent=txt; el.style.transition='opacity .35s ease'; el.style.opacity=1; },200);
   }
+  $('#bubbleText').style.transition='opacity .35s ease';
   setInterval(()=>{
-    if(current === 'letter' || current === 'box' || current === 'game'){
-      bubble(BUBBLES[bIdx % BUBBLES.length]); bIdx++;
-    }
+    if(current==='letter'||current==='game'||current==='box'){ bubble(BUBBLES[bIdx % BUBBLES.length]); bIdx++; }
   }, 6500);
 
-  /* ---------- LOVE METER ---------- */
-  let love = 0;
+  /* ============================================================
+     LOVE METER + TOMBOL
+     ============================================================ */
+  let love=0;
   $('#btnLove').addEventListener('click', ()=>{
-    love = Math.min(100, love + 4 + Math.floor(Math.random()*5));
-    $('#loveBar').style.width = love + '%';
-    $('#lovePct').textContent = love + '%';
+    love=Math.min(100, love+4+Math.floor(Math.random()*5));
+    $('#loveBar').style.width=love+'%'; $('#lovePct').textContent=love+'%';
     heartBurst(4, ['fa-heart','fa-heart','fa-heart','fa-wand-sparkles'][Math.floor(Math.random()*4)]);
-    blip(500 + love*8);
-    if(love >= 100){
-      $('#bubbleText').textContent = 'Love meter full! Kamu savage banget sih — hati aku full!';
-      confetti(80);
-      $('#charBox').querySelector('svg').classList.add('animate-heartbeat');
-    }
+    blip(500+love*8);
+    if(love>=100){ bubble('Love meter full! Kamu savage banget sih.'); confetti(80); setExprAll('joy'); }
   });
-
-  /* ---------- BUTTONS ---------- */
   $('#btnHug').addEventListener('click', ()=>{
-    const g = $('#charBox').querySelector('svg');
-    g.classList.add('animate-squash');
-    setTimeout(()=>g.classList.remove('animate-squash'), 600);
-    heartBurst(18,'fa-heart');
-    bubble('HUG! Peluk virtual, tapi hatinya beneran!');
+    const g=$('#letterGirl').querySelector('svg');
+    g.classList.add('hug'); setTimeout(()=>g.classList.remove('hug'),650);
+    heartBurst(18,'fa-heart'); bubble('HUG! Peluk virtual, tapi hatinya beneran.');
     blip(392); setTimeout(()=>blip(523),100); setTimeout(()=>blip(659),200);
   });
   $('#btnKiss').addEventListener('click', ()=>{
-    heartBurst(22,'fa-heart');
-    bubble('Muah! Ini kiss virtual, kiss beneran dapat waktu ketemu ya!');
+    heartBurst(22,'fa-heart'); setExprAll('shy'); bubble('Muah! Ini kiss virtual, kiss beneran dapat waktu ketemu ya!');
     blip(880); setTimeout(()=>blip(1174),120);
   });
   $('#btnRain').addEventListener('click', ()=>{
-    const icons = ['fa-heart','fa-spa','fa-heart','fa-wand-sparkles','fa-ribbon'];
+    const icons=['fa-heart','fa-spa','fa-heart','fa-wand-sparkles','fa-ribbon'];
     for(let i=0;i<40;i++){
-      const e = document.createElement('i');
-      e.className = 'fa-solid ' + icons[Math.floor(Math.random()*icons.length)];
-      e.style.color = ['#ff83ad','#ffc2dc','#ff5f96','#ffe6a8','#c58cff'][Math.floor(Math.random()*5)];
-      e.style.position='fixed'; e.style.top='-40px';
-      e.style.left=(Math.random()*100)+'vw';
-      e.style.fontSize=(14+Math.random()*18)+'px';
-      e.style.zIndex=70; e.style.pointerEvents='none';
-      e.style.animation = `fall ${3+Math.random()*3}s linear forwards`;
-      e.style.animationDelay = (Math.random()*2)+'s';
-      document.body.appendChild(e);
-      setTimeout(()=>e.remove(), 9000);
+      const e=document.createElement('i');
+      e.className='fa-solid '+icons[Math.floor(Math.random()*icons.length)];
+      e.style.cssText='position:fixed;top:-40px;left:'+(Math.random()*100)+'vw;font-size:'+(14+Math.random()*18)+'px;color:'+['#ff83ad','#ffc2dc','#ff5f96','#ffe6a8','#c58cff'][Math.floor(Math.random()*5)]+';z-index:70;pointer-events:none;';
+      e.style.animation='fall '+(3+Math.random()*3)+'s linear '+(Math.random()*2)+'s infinite';
+      document.body.appendChild(e); setTimeout(()=>e.remove(),12000);
     }
     bubble('Hujan bunga buat kamu!');
   });
+  $$('#polaroids .cursor-pointer').forEach(el=>{
+    el.addEventListener('click', ()=>{ bubble(el.dataset.cap+'! Hati kamu meledak sekarang.'); heartBurst(6,'fa-heart'); });
+  });
 
-  /* ---------- REPLY ---------- */
+  /* ============================================================
+     BALASAN -> FINALE
+     ============================================================ */
   $('#btnReply').addEventListener('click', ()=>{
-    const v = $('#replyBox').value.trim();
-    if(v.length < 2){
+    const v=$('#replyBox').value.trim();
+    if(v.length<2){
       bubble('Ehe, jangan kosong dong, aku nunggu balasanmu!');
       $('#replyBox').classList.add('animate-shake');
       setTimeout(()=>$('#replyBox').classList.remove('animate-shake'),700);
       return;
     }
     blip(1046); setTimeout(()=>blip(1318),140);
-    const fin = $('#finale');
-    fin.style.display = 'flex';
-    fin.classList.add('animate-pop');
-    $('#finaleMsg').innerHTML = 'Balasan kamu udah masuk ke hatiku, dan tahu apa? <b>Hati aku juga balas: "I LOVE YOU. Always. Bahkan habis ini juga."</b><br><span class="text-sm opacity-90">— dibuat dengan semua error yang pernah kamu tanggung karena aku ' + fa('heart') + '</span>';
-    heartRain();
-    confetti(100);
-    $('#replyBox').value = '';
+    const fin=$('#finale'); fin.style.display='flex'; fin.classList.add('animate-pop');
+    mountGirl($('#finaleGirl'),'joy');
+    $('#finaleMsg').innerHTML='Balasan kamu udah masuk ke hatiku, dan tahu apa? <b>Hati aku juga balas: "I LOVE YOU. Always. Bahkan habis ini juga."</b><br><span class="text-sm opacity-90">— dibuat dengan semua error yang pernah kamu tanggung karena aku '+fa('heart')+'</span>';
+    heartRain(); confetti(110);
+    $('#replyBox').value='';
   });
-  $('#btnAgain').addEventListener('click', ()=>{ location.reload(); });
-  $('#btnPrint').addEventListener('click', ()=>{ window.print(); });
-
+  $('#btnAgain').addEventListener('click', ()=>location.reload());
+  $('#btnPrint').addEventListener('click', ()=>window.print());
   function heartRain(){
-    const wrap = $('#finaleHearts');
+    const wrap=$('#finaleHearts');
     for(let i=0;i<70;i++){
       const h=document.createElement('i');
-      h.className = 'fa-solid ' + ['fa-heart','fa-heart','fa-spa','fa-wand-sparkles','fa-heart','fa-ribbon','fa-star'][Math.floor(Math.random()*7)];
-      h.style.color = ['#ffffff','#fff0f6','#ffe6a8','#ffe1ec','#ffd9e8'][Math.floor(Math.random()*5)];
-      h.style.position='absolute';
-      h.style.left=(Math.random()*100)+'%';
-      h.style.top=(-10-Math.random()*60)+'%';
-      h.style.fontSize=(16+Math.random()*30)+'px';
-      h.style.opacity=(.4+Math.random()*.6).toFixed(2);
-      h.style.animation=`fall ${4+Math.random()*5}s linear infinite`;
-      h.style.animationDelay=(-Math.random()*6)+'s';
+      h.className='fa-solid '+['fa-heart','fa-heart','fa-spa','fa-wand-sparkles','fa-heart','fa-ribbon','fa-star'][Math.floor(Math.random()*7)];
+      h.style.cssText='position:absolute;left:'+(Math.random()*100)+'%;top:'+(-10-Math.random()*60)+'%;font-size:'+(16+Math.random()*30)+'px;opacity:'+(.4+Math.random()*.6).toFixed(2)+';';
+      h.style.animation='fall '+(4+Math.random()*5)+'s linear '+(-Math.random()*6)+'s infinite';
       wrap.appendChild(h);
     }
   }
+
+  mountGirl($('#letterGirl'),'happy');
 })();
 </script>
 </body>
