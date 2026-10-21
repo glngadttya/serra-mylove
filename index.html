@@ -147,9 +147,13 @@ tailwind.config = {
   .balloon::after { content:''; position:absolute; bottom:-16px; left:50%; width:2px; height:16px; background:rgba(91,53,71,.35); }
   .balloon::before { content:''; position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:8px solid #ff8fb5; }
   .balloon.pop { animation: balloonPop .35s ease-out forwards; }
+  @media (max-width: 639px){ .balloon { width:52px; height:64px; font-size:23px; } }
   @keyframes balloonPop { 0%{transform:scale(1)} 40%{transform:scale(1.25)} 100%{transform:scale(0) rotate(30deg); opacity:0} }
-  .slot { width:38px; height:46px; border-radius:12px; border:2px dashed #ffc9de; background:#fff; display:flex; align-items:center; justify-content:center;
-          font-family:'Baloo 2',cursive; font-weight:800; font-size:22px; color:#f43f7d; }
+  .slot { width:26px; height:34px; border-radius:9px; border:2px dashed #ffc9de; background:#fff; display:flex; align-items:center; justify-content:center;
+          font-family:'Baloo 2',cursive; font-weight:800; font-size:16px; color:#f43f7d; }
+  @media (min-width: 640px){ .slot { width:36px; height:44px; font-size:22px; border-radius:12px; } }
+  .balloon.hint { box-shadow:0 0 0 4px rgba(255,255,255,.9), 0 0 26px 6px rgba(255,92,150,.75); transform-origin:center; }
+  .balloon.hint::before { border-top-color:#ff5f96; }
   .slot.filled { border-style:solid; border-color:#ff83ad; background:#ffe6f0; }
   .bubble { position:relative; background:#fff; border:2px solid #ffc9de; border-radius:20px; padding:12px 16px; }
   .bubble::after { content:''; position:absolute; left:26px; bottom:-11px; width:18px; height:18px; background:#fff; border-right:2px solid #ffc9de; border-bottom:2px solid #ffc9de; transform:rotate(45deg); }
@@ -629,14 +633,25 @@ tailwind.config = {
   const stages={hero:'#stageHero',game:'#stageGame',box:'#stageBox',letter:'#stageLetter'};
   let current='hero';
   function openStage(sel){
-    const el=$(sel); el.classList.remove('hidden','out');
-    requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
+    const el=$(sel);
+    el.dataset.ct=String(Number(el.dataset.ct||0)+1);
+    el.classList.remove('hidden','out');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      if(!el.classList.contains('hidden')) el.classList.add('show');
+    }));
   }
   function closeStage(sel){
-    const el=$(sel); el.classList.add('out');
-    setTimeout(()=>{ el.classList.remove('show','out'); el.classList.add('hidden'); },560);
+    const el=$(sel);
+    el.dataset.ct=String(Number(el.dataset.ct||0)+1);
+    const my=el.dataset.ct;
+    el.classList.add('out');
+    setTimeout(()=>{
+      if(el.dataset.ct!==my) return;              // udah dibuka lagi -> jangan hide
+      el.classList.remove('show','out'); el.classList.add('hidden');
+    },560);
   }
   function goto(name){
+    if(stages[name]===stages[current]){ openStage(stages[name]); return; }
     closeStage(stages[current]); current=name;
     setTimeout(()=>openStage(stages[name]),340);
   }
@@ -687,8 +702,8 @@ tailwind.config = {
   const CH=[
     { key:'hearts',   title:'Tantangan 1 — Tangkap Hati',   desc:'Arahkan keranjang (klik/geser) buat nangkep 10 hati yang jatuh. Jangan sampai kelewatan!',
       goal:10, tip:'Geser mouse atau jarinya ke kiri-kanan ya.' },
-    { key:'balloons', title:'Tantangan 2 — Pecah Balon Huruf', desc:'Balon berisi huruf. Pecah sesuai urutan yang diminta untuk membentuk kata TERIMA KASIH.',
-      goal:11, tip:'Pecah balon huruf yang diminta, urutan dari kiri ke kanan.' },
+    { key:'balloons', title:'Tantangan 2 — Pecah Balon Huruf', desc:'Balon berisi huruf. Pecah balon yang hurufnya sama dengan yang diminta, sampai jadi kata TERIMA KASIH.',
+      goal:11, tip:'Balon yang glow pink itu yang harus dipecah. Salah pecah = kurang nyawa.' },
     { key:'meter',    title:'Tantangan 3 — Stop the Love Meter', desc:'Klik saat penanda berhenti di area hati. Mustahil 3 kali berturut-turut!',
       goal:3, tip:'Tepat di area pink-nya ya. Jangan pelan-pelan!' }
   ];
@@ -765,7 +780,7 @@ tailwind.config = {
           + '<div class="absolute bottom-1 left-1/2 -translate-x-1/2 text-[10px] font-bold text-cocoa/50">keranjangmu</div>';
         const layer=$('#hlayer'), basket=$('#basket');
         const hearts=[]; let W=0,H=0,bx=0,tx=0,timeLeft=45,spawnAcc=0;
-        function size(){ W=area.clientWidth; H=area.clientHeight; bx=W/2; tx=bx; }
+        function size(){ W=area.clientWidth; H=area.clientHeight; bx=W/2||0; tx=bx; }
         size();
         const onMove=(e)=>{ const r=area.getBoundingClientRect(); tx=e.clientX-r.left; };
         area.addEventListener('pointermove',onMove);
@@ -796,6 +811,7 @@ tailwind.config = {
         }
         function loop(now){
           const dt=(now-last)/1000; last=now;
+          if(!W||!H) size();
           bx += (tx-bx)*Math.min(1, dt*14);
           basket.style.left=bx+'px'; basket.style.transform='translateX(-50%) rotate('+Math.sin(now/180)*6+'deg)';
           spawnAcc+=dt;
@@ -824,24 +840,28 @@ tailwind.config = {
     balloons:{
       start(){
         const word='TERIMAKASIH'.split('');
-        area.innerHTML = '<div id="slots" class="absolute top-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>'
-          + '<div id="target" class="absolute top-14 left-1/2 -translate-x-1/2 font-display font-bold text-sm text-bubblegum-700 bg-white/85 px-3 py-1 rounded-full border border-bubblegum-200"></div>'
+        area.innerHTML = '<div id="slots" class="absolute top-2 left-1/2 -translate-x-1/2 flex flex-wrap justify-center gap-0.5 sm:gap-1.5 z-20 px-2"></div>'
+          + '<div id="target" class="absolute top-16 left-1/2 -translate-x-1/2 z-20 font-display font-bold text-sm md:text-base text-bubblegum-700 bg-white/90 px-3 py-1.5 rounded-full border border-bubblegum-200 shadow-card whitespace-nowrap"></div>'
           + '<div id="blayer" class="absolute inset-0"></div>';
         const slots=$('#slots'), target=$('#target'), layer=$('#blayer');
         let W=0,H=0,prog=0, lives=3;
         const balloons=[];
         function size(){ W=area.clientWidth; H=area.clientHeight; }
         size();
+        if(!W||!H) setTimeout(size,120);
         function drawSlots(){
           slots.innerHTML = word.map((c,i)=>'<div class="slot '+(i<prog?'filled':'')+'">'+ (i<prog?c:'') +'</div>').join('');
         }
         function drawTarget(){
-          target.innerHTML = 'sekarang: <b class="text-bubblegum-600">'+word[prog]+'</b>';
+          target.innerHTML = 'pecah yang hurufnya <b class="text-bubblegum-600 text-lg">'+word[prog]+'</b>';
+          balloons.forEach(o=>{ if(o.alive) o.el.classList.toggle('hint', o.letter===word[prog]); });
         }
         function makeBalloon(letter, slotIndex){
           const b=document.createElement('div');
           b.className='balloon'; b.textContent=letter;
-          const o={el:b,letter,x:30+Math.random()*(W-90),y:H+60,vy:-(40+Math.random()*35),sway:Math.random()*6,phase:Math.random()*6,slot:slotIndex,alive:true};
+          // langsung tersebar di area (bukan nunggu naik dari bawah)
+          const o={el:b,letter,x:20+Math.random()*Math.max(40,W-80),y:-70+Math.random()*(H-20),
+                   vy:-(55+Math.random()*45),sway:Math.random()*6,phase:Math.random()*6,slot:slotIndex,alive:true};
           b.style.left=o.x+'px'; b.style.top=o.y+'px';
           b.addEventListener('pointerdown',(e)=>{ e.stopPropagation(); pop(o); });
           layer.appendChild(b); balloons.push(o);
@@ -862,23 +882,27 @@ tailwind.config = {
         }
         // spawn semua huruf (acak) diam-diam
         let shuffled = word.map((c,i)=>({c,i})).sort(()=>Math.random()-0.5);
-        shuffled.forEach((o,i)=>setTimeout(()=>makeBalloon(o.c,o.i), i*120));
+        shuffled.forEach((o,i)=>setTimeout(()=>makeBalloon(o.c,o.i), i*60));
         drawSlots(); drawTarget();
         let last=performance.now();
         function loop(now){
           const dt=(now-last)/1000; last=now;
+          if(!W||!H) size();
           for(const o of balloons){
             if(!o.alive) continue;
             o.phase+=dt*1.6;
             o.y+=o.vy*dt;
             o.x=Math.max(10,Math.min(W-80,o.x+Math.sin(o.phase)*30*dt));
             if(o.y<-90){
-              o.y=H+70;
+              o.y=H+40;
               const pool=word.slice(prog);
               if(pool.length){ o.letter=pool[Math.floor(Math.random()*pool.length)]; o.el.textContent=o.letter; }
+              o.el.classList.toggle('hint', o.letter===word[prog]);
             }
             o.el.style.left=o.x+'px'; o.el.style.top=o.y+'px';
             o.el.style.transform='rotate('+Math.sin(o.phase)*7+'deg)';
+            if(o.letter===word[prog] && !o.el.classList.contains('hint')) o.el.classList.add('hint');
+            if(o.letter!==word[prog] && o.el.classList.contains('hint')) o.el.classList.remove('hint');
           }
           if(prog<word.length) rafId=requestAnimationFrame(loop);
         }
